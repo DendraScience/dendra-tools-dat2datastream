@@ -1,0 +1,277 @@
+{
+  "terms": [
+    {
+      "abbreviations": ["_day_of_year","hours_min","ts","rn"],
+      "label": "ignore"
+    },
+    {
+      "abbreviations": ["A"],
+      "label": "Ampere"
+    },
+    {
+      "abbreviations": ["bar"],
+      "label": "Bar"
+    },
+    {
+      "abbreviations": ["cbar"],
+      "label": "Centibar"
+    },
+    {
+      "abbreviations": ["cm"],
+      "label": "Centimeter"
+    },
+    {
+      "abbreviations": ["cm/hr"],
+      "label": "CentimeterPerHour",
+      "name": "Centimeter Per Hour"
+    },
+    {
+      "abbreviations": ["count"],
+      "label": "Count"
+    },
+    {
+      "abbreviations": ["m^3/s"],
+      "label": "CubicMeterPerSecond",
+      "name": "Cubic Meter Per Second"
+    },
+    {
+      "abbreviations": ["dB"],
+      "label": "Decibel"
+    },
+    {
+      "abbreviations": ["dBm"],
+      "label": "DecibelMilliwatt",
+      "name": "Decibel-Milliwatt"
+    },
+    {
+      "abbreviations": ["dS/m"],
+      "label": "DecisiemenPerMeter",
+      "name": "Decisiemen Per Meter"
+    },
+    {
+      "abbreviations": ["°","deg","degree","degrees"],
+      "label": "DegreeAngle",
+      "name": "Degree Angle"
+    },
+    {
+      "abbreviations": ["degC","deg c","° c","°c","AT_C","delta_T_C","PTemp_","_C_","_c_"],
+      "label": "DegreeCelsius",
+      "name": "Degree Celsius"
+    },
+    {
+      "abbreviations": ["degF"],
+      "label": "DegreeFahrenheit",
+      "name": "Degree Fahrenheit"
+    },
+    {
+      "abbreviations": ["unitless","invalid_wind"],
+      "label": "Dimensionless"
+    },
+    {
+      "abbreviations": ["F"],
+      "label": "Farad"
+    },
+    {
+      "abbreviations": ["ft"],
+      "label": "Foot"
+    },
+    {
+      "abbreviations": ["g","gram","gm"],
+      "label": "gram"
+    },
+    {
+      "abbreviations": ["g/l","gram/liter","gm NaCl / L"],
+      "label": "GramPerLiter",
+      "name": "Gram Per Liter"
+    },
+    {
+      "abbreviations": ["s^-1"],
+      "label": "Hertz"
+    },
+    {
+      "abbreviations": ["in","inches","h20 inches"],
+      "label": "Inch"
+    },
+    {
+      "abbreviations": ["K"],
+      "label": "Kelvin"
+    },
+    {
+      "abbreviations": ["kPa"],
+      "label": "Kilopascal"
+    },
+    {
+      "abbreviations": ["kJ/m^2","kJ/m"],
+      "label": "KilojoulePerSquareMeter",
+      "name": "Kilojoule Per Square Meter"
+    },
+    {
+      "abbreviations": ["kΩ","kiloohm","kohms"],
+      "label": "Kiloohm",
+      "name": "Kilo-ohm"
+    },
+    {
+      "abbreviations": ["km","kilometers"],
+      "label": "Kilometer"
+    },
+    {
+      "abbreviations": ["kW/m^2","kW/m","kW/må_","kw_m2","kw/m²"],
+      "label": "KiloWattPerSquareMeter",
+      "name": "Kilowatt Per Square Meter"
+    },
+    {
+      "abbreviations": ["lx"],
+      "label": "Lux"
+    },
+    {
+      "abbreviations": ["mag/arcsec^2"],
+      "label": "MagnitudesperSquareArcsecond",
+      "name": "Magnitudes per Square Arcsecond"
+    },
+    {
+      "abbreviations": ["MJ/m^2","MJ/m"],
+      "label": "MegajoulePerSquareMeter",
+      "name": "Megajoule Per Square Meter"
+    },
+    {
+      "abbreviations": ["MV/m"],
+      "label": "MegavoltPerMeter",
+      "name": "Megavolt Per Meter"
+    },
+    {
+      "abbreviations": ["m","meters"],
+      "label": "Meter"
+    },
+    {
+      "abbreviations": ["m/d"],
+      "label": "MeterPerDay",
+      "name": "Meter Per Day"
+    },
+    {
+      "abbreviations": ["m/s","meters/second"],
+      "label": "MeterPerSecond",
+      "name": "Meter Per Second"
+    },
+    {
+      "abbreviations": ["µmol"],
+      "label": "Micromole"
+    },
+    {
+      "abbreviations": ["µmol/m^2","mmol/s/m²","mmol/s/må_","umol/s/m^2","umol/m^2"],
+      "label": "MicromolePerSquareMeter"
+    },
+    {
+      "abbreviations": ["µsec","nsec","usec"],
+      "label":"Microsecond"
+    },
+    {
+      "abbreviations": ["mi/hr","mph"],
+      "label": "MilePerHour",
+      "name": "Miles Per Hour"
+    },
+    {
+      "abbreviations": ["mA"],
+      "label": "Milliamp"
+    },
+    {
+      "abbreviations": ["mb","mbar"],
+      "label": "Millibar"
+    },
+    {
+      "abbreviations": ["mm"],
+      "label": "Millimeter"
+    },
+    {
+      "abbreviations": ["mmHg","mm_hg"],
+      "label": "MillimeterOfMercury"
+    },
+    {
+      "abbreviations": ["mm/d"],
+      "label": "MillimeterPerDay",
+      "name": "Millimeter Per Day"
+    },
+    {
+      "abbreviations": ["mm/hr"],
+      "label": "MillimeterPerHour",
+      "name": "Millimeter Per Hour"
+    },
+    {
+      "abbreviations": ["mV","millivolts"],
+      "label": "Millivolt"
+    },
+    {
+      "abbreviations": ["'"],
+      "label": "MinuteAngle",
+      "name": "Minute Angle"
+    },
+    {
+      "abbreviations": ["min","minutes"],
+      "label": "MinuteTime",
+      "name": "Minute Time"
+    },
+    {
+      "abbreviations": ["mol"],
+      "label": "Mole"
+    },
+    {
+      "abbreviations": ["NTU"],
+      "label": "NephelometricTurbidityUnit",
+      "name": "Nephelometric Turbidity Unit"
+    },
+    {
+      "abbreviations": ["ohm"],
+      "label": "Ohm"
+    },
+    {
+      "abbreviations": ["ppm"],
+      "label": "PartPerMillion",
+      "name": "Part Per Million"
+    },
+    {
+      "abbreviations": ["%","pct","per","perc","m^3/m^3"],
+      "label": "Percent"
+    },
+    {
+      "abbreviations": ["psi"],
+      "label": "PoundForcePerSquareInch",
+      "name": "Pound Force Per Square Inch"
+    },
+    {
+      "abbreviations": ["sec","seconds"],
+      "label": "SecondTime",
+      "name": "Second Time"
+    },
+    {
+      "abbreviations": ["S/m"],
+      "label": "SiemenPerMeter",
+      "name": "Siemen Per Meter"
+    },
+    {
+      "abbreviations": ["V","volts","volt"],
+      "label": "Volt"
+    },
+    {
+      "abbreviations": ["V/m"],
+      "label": "VoltPerMeter",
+      "name": "Volt Per Meter"
+    },
+    {
+      "abbreviations":["% H2O","pct by vol","m3/m3"],
+      "label": "VolumetricWaterContent",
+      "name": "Volumetric Water Content"
+    },
+    {
+      "abbreviations": ["W"],
+      "label": "Watt"
+    },
+    {
+      "abbreviations": ["W/m^2","W/m","w/m²"],
+      "label": "WattPerSquareMeter",
+      "name": "Watt Per Square Meter"
+    },
+    {
+      "abbreviations": [""],
+      "label": "Dimensionless"
+    }
+  ]
+}

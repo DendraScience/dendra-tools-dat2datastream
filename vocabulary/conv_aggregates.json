@@ -1,0 +1,48 @@
+{
+  "terms": [
+    {
+      "abbreviations": ["Avg"],
+      "label": "Average",
+      "name": "Average/Mean"
+    },
+    {
+      "abbreviations": ["Max"],
+      "label": "Maximum"
+    },
+    {
+      "abbreviations": ["Med"],
+      "label": "Median"
+    },
+    {
+      "abbreviations": ["Min"],
+      "label": "Minimum"
+    },
+    {
+      "abbreviations": ["Std","Stdev"],
+      "label": "StandardDeviation",
+      "name": "Standard Deviation"
+    },
+    {
+      "abbreviations": ["Cum"],
+      "label": "Cumulative"
+    },
+    {
+      "abbreviations": ["Smp"],
+      "label": "",
+      "name": "Sample"
+    },
+    {
+      "abbreviations": ["Sum","Tot"],
+      "label": "Sum"
+    },
+    {
+      "abbreviations": ["Hst"],
+      "label": "Histogram"
+    },
+    {
+      "abbreviations": ["WVc"],
+      "label": "WindVectorCells",
+      "name": "Wind Vector Cells"
+    }
+  ]
+}

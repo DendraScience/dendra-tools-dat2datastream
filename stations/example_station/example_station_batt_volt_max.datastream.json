@@ -1,0 +1,32 @@
+{
+  "is_enabled": true,
+  "name": "Battery Voltage Maximum Batt_volt_Max",
+  "organization_id": "58db17c424dc720001671378",
+  "source_type": "sensor",
+  "state": "ready",
+  "station_id": "aaa99999example999999aaa",
+  "datapoints_config": [
+    {
+      "params": {
+        "query": {
+          "api": "ucnrs",
+          "db": "station_example_station",
+          "fc": "source_tenmin",
+          "sc": "\"time\", \"Batt_volt_Max\"",
+          "utc_offset": -28800,
+          "coalesce": false
+        }
+      },
+      "begins_at": "2020-01-07T06:40:00.000Z",
+      "path": "/influx/select"
+    }
+  ],
+  "tags": [
+    "dq_Measurement_BatteryVoltage",
+    "dq_Purpose_StatusInformation",
+    "dt_Unit_Volt",
+    "ds_Aggregate_Maximum",
+    "ds_Medium_Battery",
+    "ds_Variable_Voltage"
+  ]
+}

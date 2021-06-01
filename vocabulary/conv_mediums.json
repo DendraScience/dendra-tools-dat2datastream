@@ -1,0 +1,92 @@
+{
+  "_id": "conv-medium",
+  "label": "Medium",
+  "scheme_id": "ds",
+  "terms": [
+    {
+      "abbreviations": ["TIMESTAMP","RECORD","Day_of_Year","HourMin","Sta_ID","CVMeta"],
+      "label": "Ignore"
+    },
+    {
+      "abbreviations": ["batt"],
+      "label": "Battery"
+    },
+    {
+      "abbreviations": ["groundwater"],
+      "label": "GroundWater",
+      "name": "Ground Water"
+    },
+    {
+      "abbreviations": ["forwardrx", "forwardtx", "goes", "gps", "instrument", "pwr", "panel", "ptemp", "reflectrx", "reflecttx"],
+      "label": "Instrument"
+    },
+    {
+      "abbreviations": ["leaf","lw"],
+      "label": "Leaf"
+    },
+    {
+      "abbreviations": ["strikes","dist_km"],
+      "label": "Lightning"
+    },
+    {
+      "label": "Not Applicable",
+      "name": "NotApplicable"
+    },
+    {
+      "abbreviations": ["DOmV","DOppm","pcpn", "precip", "rain", "rg"],
+      "label": "Water"
+    },
+    {
+      "abbreviations": ["permit", "rock", "sleeve"],
+      "label": "Rock"
+    },
+    {
+      "abbreviations": ["sap", "tdp","sensor"],
+      "label": "Sap"
+    },
+    {
+      "label": "Saprolite"
+    },
+    {
+      "abbreviations": ["sediment"],
+      "label": "Sediment"
+    },
+    {
+      "abbreviations": ["sky"],
+      "label": "Sky"
+    },
+    {
+      "abbreviations": ["snow"],
+      "label": "Snow"
+    },
+    {
+      "abbreviations": ["par", "slr", "Solar", "tsr","rskw","rs_kw"],
+      "label": "Solar"
+    },
+    {
+      "abbreviations": ["surface"],
+      "label": "SurfaceWater",
+      "name": "Surface Water"
+    },
+    {
+      "abbreviations": ["tissue"],
+      "label": "Tissue"
+    },
+    {
+      "label": "Unknown"
+    },
+    {
+      "abbreviations": ["lvl", "river", "stage", "turbid", "water", "well"],
+      "label": "Water"
+    },
+    {
+      "abbreviations": ["air", "at_c", "baro", "bp", "rh", "spd", "wdir", "wind", "wspeed", "wsms","ws_ms","tc_c","delta_t_c"],
+      "label": "Air"
+    },
+    {
+      "abbreviations": ["cs616", "ec", "erp", "lal", "soil", "vmc", "vw","p_","pa_","ka_","vr","p","t"],
+      "label": "Soil"
+    }    
+  ],
+  "created_at": "2019-02-03T00:01:00.0Z"
+}

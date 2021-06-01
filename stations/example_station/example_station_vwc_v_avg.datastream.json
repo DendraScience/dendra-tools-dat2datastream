@@ -1,0 +1,32 @@
+{
+  "is_enabled": true,
+  "name": "Soil Moisture Average VWC_V_Avg",
+  "organization_id": "58db17c424dc720001671378",
+  "source_type": "sensor",
+  "state": "ready",
+  "station_id": "aaa99999example999999aaa",
+  "datapoints_config": [
+    {
+      "params": {
+        "query": {
+          "api": "ucnrs",
+          "db": "station_example_station",
+          "fc": "source_tenmin",
+          "sc": "\"time\", \"VWC_V_Avg\"",
+          "utc_offset": -28800,
+          "coalesce": false
+        }
+      },
+      "begins_at": "2020-01-07T06:40:00.000Z",
+      "path": "/influx/select"
+    }
+  ],
+  "tags": [
+    "dq_Measurement_SoilMoisture",
+    "dq_Purpose_ReadytoUse",
+    "dt_Unit_VolumetricWaterContent",
+    "ds_Aggregate_Average",
+    "ds_Medium_Soil",
+    "ds_Variable_VolumetricWaterContent"
+  ]
+}

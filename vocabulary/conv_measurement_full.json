@@ -1,0 +1,919 @@
+{
+  "_id": "dq-measurement",
+  "label": "Measurement",
+  "scheme_id": "dq",
+  "terms": [
+    {
+      "abbreviations": ["timestamp","record","day_of_year","_day_of_year","hourmin","sta_id","stationnum","cvmeta"],
+      "label": "IGNORE"
+    },
+    {
+      "label": "SPECIFIC FIELDS THAT NEED TO BE AT THE TOP"
+    },
+    {
+      "abbreviations": ["TDP_HeaterVoltage"],
+      "label": "SapFlowHeaterVoltage",
+      "name": "Sap Flow Heater Voltage",
+      "medium": "Sap",
+      "variable": "Voltage",
+      "related_terms": {
+        "more_general": [
+          "Sap Flow",
+          "Status"
+        ],
+        "more_specific": [
+          "Sap Flow",
+          "Sap Flux",
+          "Sap Flow Period",
+          "Sap Flow Temperature",
+          "Diff",
+          "Differential"
+        ]
+      }
+    },
+    {
+      "abbreviations": ["enclosureRH"],
+      "label": "EnclosureRelativeHumidity",
+      "name": "Enclosure Relative Humidity",
+      "medium": "Instrument",
+      "variable": "Humidity",
+      "related_terms": {
+        "more_general": [
+          "Humidity"
+        ],
+        "more_specific": [
+          "Relative Humidity",
+          "Absolute Humidity"
+        ]
+      },
+      "data_purpose": "StatusInformation"
+    },
+    {
+      "abbreviations": ["TCmid_max_TimeSinceEndPulse"],
+      "label": "SapFlowPeriod",
+      "name": "Sap Flow Period",
+      "medium": "Sap",
+      "variable": "Period",
+      "related_terms": {
+        "more_general": [
+          "Sap Flow"
+        ],
+        "more_specific": [
+          "Sap Flow",
+          "Sap Flux",
+          "Sap Flow Temperature",
+          "Diff",
+          "Difference",
+          "Heater Voltage"
+        ]
+      },
+      "data_purpose": "Raw"
+    },
+    {
+      "abbreviations": ["MidTop_Temp","MidBot_Temp"],
+      "label": "SapTemperature",
+      "name": "Sap Temperature",
+      "medium": "Sap",
+      "variable": "Temperature",
+      "related_terms": {
+        "more_general": [
+          "Sap Flow"
+        ],
+        "more_specific": [
+          "Sap Flow",
+          "Sap Flux",
+          "Sap Flow Period",
+          "Diff",
+          "Difference",
+          "Heater Voltage"
+        ]
+      },
+      "data_purpose": "Raw"
+    },
+    {
+      "abbreviations": ["tdp80","tdp100","_deltaT_mid"],
+      "label": "SapTemperatureDifference",
+      "name": "Sap Temperature Difference",
+      "medium": "Sap",
+      "variable": "Temperature",
+      "related_terms": {
+        "more_general": [
+          "Sap Flow"
+        ],
+        "more_specific": [
+          "Sap Flow",
+          "Sap Flux",
+          "Sap Flow Period",
+          "Diff",
+          "Difference",
+          "Heater Voltage"
+        ]
+      },
+      "data_purpose": "Raw"
+    },
+    {
+      "abbreviations": ["rgtemp"], 
+      "label": "RainGaugeTemperature",
+      "name": "Rain Gauge Temperature",
+      "medium": "Instrument",
+      "variable": "Temperature",
+      "related_terms": {
+        "more_general": [
+          "status", "precipitation"
+        ],
+        "more_specific": [
+          "Well Temperature",
+          "Stream Temperature",
+          "Instrument Temperature"
+        ]
+      },
+      "data_purpose": "StatusInformation"
+    },
+    {
+      "label": "NORMAL FIELDS"
+    },
+    { 
+      "abbreviations": ["slr","solar","rskw","rs_kw","slrflux"],
+      "label": "SolarRadiation",
+      "name": "Solar Radiation",
+      "medium": "Solar",
+      "variable": "Radiation",
+      "related_terms": {
+        "more_specific": [
+          "PAR",
+          "Shortwave",
+          "Photosynthetically Active Radiation",
+          "Net Radiation"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    { 
+      "abbreviations": ["panel_t","ptemp"],
+      "label": "InstrumentTemperature",
+      "name": "Instrument Temperature",
+      "medium": "Instrument",
+      "variable": "Temperature",
+      "related_terms": {
+        "more_general": [
+          "Status"
+        ],
+        "more_specific": [
+          "Panel Temperature"
+        ]
+      },
+      "units": [
+        "DegreeCelsius",
+        "DegreeFarenheight"
+      ],
+      "data_purpose": "StatusInformation"
+    },
+    {
+      "label": "BarometricPressure",
+      "name": "Barometric Pressure",
+      "abbreviations": ["bp","baro","vp"],
+      "medium": "Air",
+      "variable": "BarometricPressure",
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["batt","Batt24V"],
+      "label": "BatteryVoltage",
+      "name": "Battery Voltage",
+      "medium": "Battery",
+      "variable": "Voltage",
+      "related_terms": {
+        "more_general": [
+          "Instrument Voltage",
+          "Status"
+        ]
+      },
+      "data_purpose": "StatusInformation",
+      "units": [
+        "Volt"
+      ],
+      "data_purpose": "StatusInformation"
+    },
+    {
+      "abbreviations": ["DewPt"],
+      "label": "DewPoint",
+      "name": "Dew Point",
+      "medium": "Air",
+      "variable": "Moisture",
+      "related_terms": {
+        "more_specific": [
+          "Fuel Moisture",
+          "Relative Humidity",
+          "Leaf Wetness"
+        ]
+      },
+      "units": [
+      "DegreeCelsius",
+      "DegreeFarenheight"
+      ],
+      "data_purpose": "ReadytoUse"
+    },    
+    {
+      "label": "Discharge",
+      "name": "Discharge",
+      "medium": "SurfaceWater",
+      "variable": "Discharge",
+      "related_terms": {
+        "more_specific": [
+          "Stream Flow",
+          "Base Flow",
+          "Peak Flow",
+          "Flood"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["lal"],
+      "label": "DielectricConstant",
+      "name": "Dielectric Constant",
+      "medium": "Rock",
+      "variable": "DielectricStrength",
+      "related_terms": {
+        "more_general": [
+          "Soil Moisture"
+        ],
+        "more_specific": [
+          "Electrical Conductivity",
+          "Permittivity",
+          "Volumetric Water Content",
+          "Bulk Electrical Conductivity"
+        ]
+      },
+      "data_purpose": "Raw"
+    },
+    {
+      "abbreviations": ["DOmV","DOppm"],
+      "label": "DissolvedOxygen",
+      "name": "Dissolved Oxygen",
+      "medium": "Water",
+      "variable": "DissolvedOxygen",
+      "data_purpose": "ReadytoUse"
+    },    
+    {
+      "abbreviations": ["FuelM"],
+      "label": "FuelMoisture",
+      "name": "Fuel Moisture",
+      "medium": "Instrument",
+      "variable": "Moisture",
+      "related_terms": {
+        "more_general": [
+          "Fire"
+        ],
+        "more_specific": [
+          "Dew Point", 
+          "Leaf Wetness",
+          "Fuel Load",
+          "Fuel Temperature"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "label": "Hail",
+      "name": "Hail",
+      "medium": "Hail",
+      "variable": "Height",
+      "related_terms": {
+        "more_general": [
+          "Precipitation"
+        ],
+        "more_specific": [
+          "Snow Pillow",
+          "Rainfall",
+          "Snow Depth"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "label": "HailCumulative",
+      "name": "Hail Cumulative",
+      "medium": "Hail",
+      "variable": "Height",
+      "related_terms": {
+        "more_general": [
+          "Precipitation"
+        ],
+        "more_specific": [
+          "Snow Pillow",
+          "Rainfall",
+          "Snow Depth"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["volt"],
+      "label": "InstrumentVoltage",
+      "name": "Instrument Voltage",
+      "medium": "Instrument",
+      "variable": "Voltage",
+      "related_terms": {
+        "more_specific": [
+          "Battery Voltage"
+        ]
+      },
+      "data_purpose": "StatusInformation"
+    },
+    {
+      "abbreviations": ["lw", "leaf"],
+      "label": "LeafWetness",
+      "name": "Leaf Wetness",
+      "medium": "Leaf",
+      "variable": "Moisture",
+      "related_terms": {
+        "more_specific": [
+          "Dew Point", 
+          "Fuel Moisture"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["strikes_tot"],
+      "label": "LightningStrikes",
+      "name": "Lightning Strikes",
+      "medium": "Lightning",
+      "variable": "Count",
+      "related_terms": {
+        "more_general": [
+          "Storm", "Fire"
+        ],
+        "more_specific": [
+          "Lightning Strikes Distance"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["dist_km"],
+      "label": "LightningStrikeDistance",
+      "name": "Lightning Strike Distance",
+      "medium": "Lightning",
+      "variable": "Distance",
+      "related_terms": {
+        "more_general": [
+          "Storm", "Fire"
+        ],
+        "more_specific": [
+          "Lightning Strikes"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["par"],
+      "label": "PhotosyntheticallyActiveRadiation",
+      "name": "Photosynthetically Active Radiation",
+      "medium": "Solar",
+      "variable": "PhotosyntheticallyActiveRadiation",
+      "related_terms": {
+        "more_general": [
+          "Solar Radiation"
+        ],
+        "more_specific": [
+          "PAR",
+          "Shortwave Radiation"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["ReflectTxX10","ForwardTxX10"],
+      "label": "RadioSignalStrength",
+      "name": "Radio Signal Strength",
+      "medium": "Instrument",
+      "variable": "RadioTransmission",
+      "related_terms": {
+        "more_general": [
+          "Status"
+        ],
+        "more_specific": [
+          "Rx",
+          "Tx",
+          "Forward Transmit",
+          "Reflect Transmit"
+        ]
+      },
+      "data_purpose": "StatusInformation"      
+    },
+    {
+      "abbreviations": ["rain","pcpn"],
+      "label": "Rainfall",
+      "name": "Rainfall",
+      "medium": "Water",
+      "variable": "Precipitation",
+      "related_terms": {
+        "more_general": [
+          "Precipitation"
+        ],
+        "more_specific": [
+          "Rain",
+          "Throughfall",
+          "TB4",
+          "Rainfall Intensity"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "label": "RainfallCumulative",
+      "name": "Rainfall Cumulative",
+      "medium": "Water",
+      "variable": "Precipitation",
+      "related_terms": {
+        "more_general": [
+          "Precipitation"
+        ],
+        "more_specific": [
+          "Rain",
+          "Throughfall",
+          "TB4",
+          "Rainfall Intensity"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["rh"],
+      "label": "RelativeHumidity",
+      "name": "Relative Humidity",
+      "medium": "Air",
+      "variable": "RelativeHumidity",
+      "related_terms": {
+        "more_specific": [
+          "Absolute Humidity"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["erp"],
+      "label": "Resistance",
+      "name": "Resistance",
+      "medium": "Rock",
+      "variable": "ElectricalResistance",
+      "related_terms": {
+        "more_general": [
+          "Soil Moisture"
+        ],
+        "more_specific": [
+          "Electrical Conductivity",
+          "Permittivity",
+          "Volumetric Water Content",
+          "Dielectric Strength",
+          "Dielectric Constant",
+          "Voltage Ratio"
+        ]
+      },
+      "data_purpose": "Raw"
+    },
+    {
+      "label": "RockMoisture",
+      "name": "Rock Moisture",
+      "medium": "Rock",
+      "variable": "Moisture",
+      "related_terms": {
+        "more_general": [
+          "Soil Moisture"
+        ],
+        "more_specific": [
+          "Electrical Conductivity",
+          "Permittivity",
+          "Volumetric Water Content",
+          "Dielectric Strength",
+          "Dielectric Constant",
+          "Voltage Ratio"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "label": "RockTemperature",
+      "name": "Rock Temperature",
+      "medium": "Rock",
+      "variable": "Temperature",
+      "related_terms": {
+        "more_general": [
+          "Soil Temperature"
+        ],
+        "more_specific": [
+          "Saprolite Temperature"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "label": "SapFlow",
+      "name": "Sap Flow",
+      "medium": "Sap",
+      "variable": "Flux",
+      "related_terms": {
+        "more_specific": [
+          "Sap Flux",
+          "Sap Flow Period",
+          "Sap Flow Temperature",
+          "Diff",
+          "Difference",
+          "Heater Voltage"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["SQMmagnitude"],
+      "label": "SkyQuality",
+      "name": "Sky Quality",
+      "medium": "Sky",
+      "variable": "Visibility",
+      "related_terms": {
+        "more_general": [
+          "Light"
+        ],
+        "more_specific": [
+          "Night Sky"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations":["snowpillow","Snow_Depth"],
+      "label": "SnowDepth",
+      "name": "Snow Depth",
+      "medium": "Snow",
+      "variable": "Height",
+      "related_terms": {
+        "more_general": [
+          "Precipitation"
+        ],
+        "more_specific": [
+          "Snow Pillow",
+          "Rainfall",
+          "Snowfall",
+          "Snow Depth"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "label": "SnowTemperature",
+      "name": "Snow Temperature",
+      "medium": "Snow",
+      "variable": "Temperature",
+       "related_terms": {
+        "more_general": [
+          "Temperature",
+          "Precipitation"
+        ],
+        "more_specific": [
+          "Water Temperature",
+          "Air Temperature",
+          "Soil Temperature",
+          "Rock Temperature",
+          "Rainfall",
+          "Snow Depth"
+        ]
+      },
+      "data_purpose": "ReadytoUse"     
+    },
+    {  
+      "label": "VolumetricWaterContent",
+      "name": "Volumetric Water Content",
+      "medium": "Soil",
+      "variable": "VolumetricWaterContent",
+      "related_terms": {
+        "more_general": [
+          "Soil Moisture"
+        ],
+        "more_specific": [
+          "Electrical Conductivity",
+          "Permittivity",
+          "Period",
+          "Bulk Electrical Conductivity",
+          "Dielectric Strength",
+          "Voltage Ratio"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["cs616","vwc","vmc","vw_","vw"],
+      "label": "SoilMoisture",
+      "name": "Soil Moisture",
+      "medium": "Soil",
+      "variable": "VolumetricWaterContent",
+      "related_terms": {
+        "more_general": [
+          "Moisture"
+        ],
+        "more_specific": [
+          "Electrical Conductivity",
+          "Permittivity",
+          "Volumetric Water Content",
+          "Period",
+          "Bulk Electrical Conductivity",
+          "Dielectric Strength",
+          "Voltage Ratio"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["soil_t","SoilTemp","terros"],
+      "label": "SoilTemperature",
+      "name": "Soil Temperature",
+      "medium": "Soil",
+      "variable": "Temperature",
+      "related_terms": {
+        "more_specific": [
+          "Rock Temperature"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["stage","River_Ht"],
+      "label": "StreamStage",
+      "name": "Stream Stage",
+      "medium": "SurfaceWater",
+      "variable": "Depth",
+      "related_terms": {
+        "more_general": [
+          "Water Level"
+        ],
+        "more_specific": [
+          "Gage Height",
+          "River Stage"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "label": "Throughfall",
+      "name": "Throughfall",
+      "medium": "Water",
+      "variable": "Precipitation",
+      "related_terms": {
+        "more_general": [
+          "Precipitation"
+        ],
+        "more_specific": [
+          "Rain",
+          "Rainfall",
+          "Snowfall",
+          "TB4",
+          "Rainfall Intensity"
+        ]
+      },
+      "data_purpose": "Raw"
+    },
+    {
+      "label": "ThroughfallCumulative",
+      "name": "Throughfall Cumulative",
+      "medium": "Water",
+      "variable": "Precipitation",
+      "related_terms": {
+        "more_general": [
+          "Precipitation"
+        ],
+        "more_specific": [
+          "Rain",
+          "Snowfall",
+          "TB4",
+          "Rainfall Intensity"
+        ]
+      },
+      "data_purpose": "Raw"
+    },
+    {
+      "abbreviations": ["turbid"],
+      "label": "Turbidity",
+      "name": "Turbidity",
+      "medium": "SurfaceWater",
+      "variable": "Turbidity",
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["vr"],
+      "label": "VoltageRatio",
+      "name": "Voltage Ratio",
+      "medium": "Soil",
+      "variable": "VoltageRatio",
+      "related_terms": {
+        "more_general": [
+          "Soil Moisture"
+        ],
+        "more_specific": [
+          "Electrical Conductivity",
+          "Permittivity",
+          "Period",
+          "Bulk Electrical Conductivity",
+          "Dielectric Strength"
+        ]
+      },
+      "data_purpose": "Raw"
+    },
+    {
+      "abbreviations": ["tense", "tension","matrix","matric"],
+      "label": "SoilWaterPotential",
+      "name": "Soil Water Potential",
+      "medium": "Soil",
+      "variable": "WaterPotential",
+      "related_terms": {
+        "more_general": [
+          "Soil Moisture"
+        ],
+        "more_specific": [
+          "Electrical Conductivity",
+          "Volumetric Water Content",
+          "Bulk Electrical Conductivity",
+          "Dielectric Permittivity",
+          "Soil Matric Water Potential",
+          "Soil Matrix Potential"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["psi"],      
+      "label": "WaterPressure",
+      "name": "Water Pressure",
+      "medium": "Water",
+      "variable": "Pressure",
+      "related_terms": {
+        "more_specific": [
+          "Well Level", "Stream Stage"
+        ]
+      },
+      "data_purpose": "Raw"
+    },
+    {
+      "abbreviations": ["toc"], 
+      "label": "WaterTemperature",
+      "name": "Water Temperature",
+      "medium": "Water",
+      "variable": "Temperature",
+      "related_terms": {
+        "more_specific": [
+          "Rain Gage Temperature",
+          "Well Temperature",
+          "Stream Temperature"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["level","lvl"],
+      "label": "WaterLevel",
+      "name": "Water Level",
+      "medium": "Water",
+      "variable": "Depth",
+      "related_terms": {
+        "more_general": [
+          "Water Depth"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "label": "WellDepth",
+      "name": "Well Depth",
+      "medium": "GroundWater",
+      "variable": "Depth",
+      "related_terms": {
+        "more_general": [
+          "Water Depth"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "label": "WellLevel",
+      "name": "Well Level",
+      "medium": "Water",
+      "variable": "Pressure",
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["wdir", "wind_dir", "windir","winddir"],
+      "label": "WindDirection",
+      "name": "Wind Direction",
+      "medium": "Air",
+      "variable": "Direction",
+      "related_terms": {
+        "more_specific": [
+          "Wind Vector"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["wspeed", "ws_ms", "ws_mph", "w_spd", "wind_speed", "wind_ve"],
+      "label": "WindSpeed",
+      "name": "Wind Speed",
+      "medium": "Air",
+      "variable": "Speed",
+      "related_terms": {
+        "more_specific": [
+          "Wind Velocity",
+          "Wind Gust"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["invalid_wind"],
+      "label": "WindInvalidFlag",
+      "name": "Wind Invalid Flag",
+      "medium": "Air",
+      "variable": "Description",
+      "related_terms": {
+        "more_specific": [
+          "Wind Velocity",
+          "Wind Gust",
+          "Wind Speed",
+          "Wind Direction"
+        ]
+      },
+      "data_purpose": "StatusInformation"
+    },
+    {
+      "label":"SHORT FIELDS AT BOTTOM. CATCHALL"
+    },
+    {
+      "abbreviations": ["ec"],
+      "label": "ElectricalConductivity",
+      "name": "Electrical Conductivity",
+      "medium": "Soil",
+      "variable": "ElectricalConductivity",
+      "related_terms": {
+        "more_general": [
+          "Soil Moisture"
+        ],
+        "more_specific": [
+          "Permittivity",
+          "Volumetric Water Content",
+          "Period",
+          "Bulk Electrical Conductivity",
+          "Dielectric Constant"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["pa"],
+      "label": "SoilMoisturePeriod",
+      "name": "Soil Moisture Period",
+      "medium": "Soil",
+      "variable": "Period",
+      "related_terms": {
+        "more_general": [
+          "Soil Moisture"
+        ],
+        "more_specific": [
+          "Electrical Conductivity",
+          "Permittivity",
+          "Volumetric Water Content",
+          "Bulk Electrical Conductivity",
+          "Dielectric Strength",
+          "Voltage Ratio"
+        ]
+      },
+      "data_purpose": "Raw"
+    },
+    {
+      "abbreviations": ["temp", "tc", "airt", "at_c", "t107", "air_t","deltaT","t"],
+      "label": "AirTemperature",
+      "name": "Air Temperature",
+      "medium": "Air",
+      "variable": "Temperature",
+      "data_purpose":"ReadytoUse"
+    },
+    {
+      "abbreviations": ["P"],
+      "label": "Permittivity",
+      "name": "Permittivity",
+      "medium": "Soil",
+      "variable": "Permittivity",
+      "related_terms": {
+        "more_general": [
+          "Soil Moisture"
+        ],
+        "more_specific": [
+          "Electrical Conductivity",
+          "Volumetric Water Content",
+          "Period",
+          "Bulk Electrical Conductivity",
+          "Dielectric Strength"
+        ]
+      },
+      "data_purpose": "Raw"
+    }
+  ]
+}
