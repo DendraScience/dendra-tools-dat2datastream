@@ -1,0 +1,112 @@
+{
+  "org_slug": "ucanr",
+  "terms": [
+    {
+      "fields": [
+        "timestamp",
+        "record",
+        "day_of_year",
+        "_day_of_year",
+        "hourmin",
+        "sta_id",
+        "stationnum",
+        "cvmeta"
+      ],
+      "label": "IGNORE"
+    },
+    {
+      "fields": [],
+      "label": "UNKNOWN"
+    },
+    {
+      "fields": [
+        "PTemp_C_Avg"
+      ],
+      "label": "LoggerTemperature"
+    },
+    {
+      "fields": [
+        "BattV_Min"
+      ],
+      "label": "BatteryVoltage"
+    },
+    {
+      "fields": [
+        "P20_AT_15",
+        "P2_AT_15",
+        "P4_AT_15",
+        "P14_AT_15",
+        "P5_AT_15",
+        "P9_AT_15",
+        "P8_AT_15",
+        "P6_AT_15",
+        "P19_AT_15",
+        "P18_AT_15",
+        "P32_AT_15",
+        "P25_AT_15",
+        "Airtemp"
+      ],
+      "label": "AirTemperature"
+    },
+    {
+      "fields": [
+        "P20_ST_5",
+        "P2_ST_5",
+        "P4_ST_5",
+        "P14_ST_5",
+        "P20_ST_15",
+        "P2_ST_15",
+        "P4_ST_15",
+        "P14_ST_15",
+        "P5_ST_5",
+        "P9_ST_5",
+        "P8_ST_5",
+        "P6_ST_5",
+        "P5_ST_15",
+        "P9_ST_15",
+        "P8_ST_15",
+        "P6_ST_15",
+        "P19_ST_5",
+        "P18_ST_5",
+        "P32_ST_5",
+        "P25_ST_5",
+        "P19_ST_15",
+        "P18_ST_15",
+        "P32_ST_15",
+        "P25_ST_15",
+        "Open1_ST",
+        "Open2_ST",
+        "Canopy1_ST",
+        "Canopy2_ST"
+      ],
+      "label": "SoilTemperature"
+    },
+    {
+      "fields": [
+        "P20_SM",
+        "P2_SM",
+        "P4_SM",
+        "P14_SM",
+        "P5_SM",
+        "P9_SM",
+        "P8_SM",
+        "P6_SM",
+        "P19_SM",
+        "P18_SM",
+        "P32_SM",
+        "P25_SM",
+        "Open1_SM",
+        "Open2_SM",
+        "Canopy1_SM",
+        "Canopy2_SM"
+      ],
+      "label": "SoilMoisture"
+    },
+    {
+      "fields": [
+        "Precip"
+      ],
+      "label": "Rainfall"
+    }
+  ]
+}

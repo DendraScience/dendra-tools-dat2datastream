@@ -1,67 +1,30 @@
 /* 
-* LoggerNet .dat file to datastream converter
+* LoggerNet .dat file to datastream exporter
 * @author=collin bode
-* @date=2021-05-18
-* @source_date=2018-09-27
-*  - dat2datastream-original.js is the original code. 
-#  - current version is half of the original script.
-*  - dat2station.js only exports station.
-*  - changed "guessing" of measurements to requiring an org-specific header list
-*  - adds a manfifest file with arguments
+* @date=2018-09-27
+* @update=2021-05-10
+*  - now uses exact matches to fieldnames instead of guessing at fieldname
+*    by default.  
 */
 fs = require("fs")
+//ObjectID = require('mongodb').ObjectID
 
 // Argument processing of paths
-args = process.argv.slice(1)
-manifest_path = args[1]
+args = process.argv.slice(2)
+org_slug = args[0]
+match_type = args[1]
+datfile = args[2]
 boo_write = true
-//console.log("args.length:",args.length)
-//console.log(args)
 
-man = {
-	"org_slug": "test",
-	"out_path": "./stations/example_station/",
-	"station": "example_station.station.json",
-	"datfile": "./tables/Example_Station_Table.dat",
-	"fields_list": "./vocabulary/test.field_names.json"
-}
-
-// Validate args for manifest and spit out an example manifest if needed
-if(args[1] == "example") {		
-	man_string = JSON.stringify(man,null,2)
-	fs.writeFileSync("example.manifest.json",man_string,'utf-8')
-	console.log("dat2datastream has exported an 'example.manifest.json'")
-	process.exit()
-} else if(args.length != 2) {
-	console.log("usage: node dat2datastream <manifest_path> (optional, replace path with 'example' to spit out an example manifest and quit)")
+if(args.length != 3) {
+	console.log("usage: node dat2datastream <org> <exact,guess> <table>")
 	process.exit()
 }
 
-/* Manifest 
- Please use meta-list-new-unique-fields.js to create an organization-specific list of fields.
- That list should go under "fields-by-org".
-*/
-//man = fs.readFileSync(args[1]).toString().split("\r")
-//console.log("dat2datastreams: converting "+man.datfile+" for "+man.org_slug+" using "+man.fields_list)
-// Manifest File find and load
-if (!fs.existsSync(manifest_path)){
-	console.log("Didn't find",datfile)
-	if (fs.existsSync("tables/"+manifest_path)){
-		manifest_path = "tables/"+manifest_path
-		console.log("Found in table directory. Modified:",manifest_path)
-	} else {
-		console.log("Manifest NOT FOUND. exiting.",manifest_path)
-		process.exit()
-	}
-} 
-man = JSON.parse(fs.readFileSync(manifest_path))
-console.log("Manifest loaded",manifest_path)
-console.log(man)
+console.log("dat2datastreams: converting "+datfile+" for "+org_slug+" match type is "+match_type)
 
 // Organization ID and slug
 // NOTE: this should eventually be an online query to dendra via api. Problem is everything else is offline.
-org_slug = man.org_slug
-console.log("Organization Slug:",org_slug)
 if(org_slug == "erczo") {
 	orgid = "58db17e824dc720001671379"	
 } else if(org_slug == "ucnrs") {
@@ -80,14 +43,17 @@ if(org_slug == "erczo") {
 	orgid = "6092b070492ae15e05876ed8"
 } else {
 	console.log("organization not recognized. quitting.")
+	console.log("usage: node dat2datastreams.js <org_slug> <datfile_name>")
 	process.exit(1)
 }
 
 // Load config files 
-vocab_units = JSON.parse(fs.readFileSync('vocabulary/units.vocabulary.json'))
-vocab_aggs = JSON.parse(fs.readFileSync('vocabulary/aggregates.vocabulary.json'))
-vocab_measurements = JSON.parse(fs.readFileSync('vocabulary/measurement_full.vocabulary.json'))
-fields_list = JSON.parse(fs.readFileSync(man.fields_list))
+conv_units = JSON.parse(fs.readFileSync('./vocabulary/conv_units.json'))
+conv_aggs = JSON.parse(fs.readFileSync('./vocabulary/conv_aggregates.json'))
+conv_measurements = JSON.parse(fs.readFileSync('./vocabulary/conv_measurement_full.json'))
+//conv_variables = JSON.parse(fs.readFileSync('./vocabulary/conv_variables.json'))
+//conv_mediums = JSON.parse(fs.readFileSync('./vocabulary/conv_mediums.json'))
+conv_vocab = JSON.parse(fs.readFileSync('./vocabulary/conv_meta_vocab_unique.json'))
 
 // Create a blank measurement set
 blank_mmeasurement = {
@@ -103,7 +69,7 @@ function standardize_units(ns_unit) {
 	boo_match = false
 	s_unit = "UNKNOWN" //ns_unit
 	ns_unit = ns_unit.toLowerCase().replace('\n',"")
-	for (let term of vocab_units.terms) {
+	for (let term of conv_units.terms) {
 		s_label = term.label		
 		for (var k=0;k<term.abbreviations.length;k++) {
 			abbrev = term.abbreviations[k].toLowerCase()
@@ -127,7 +93,7 @@ function standardize_aggregates(ns_agg) {
 	boo_match = false
 	s_agg = "UNKNOWN" //ns_unit
 	ns_agg = ns_agg.toLowerCase().replace('\n',"")
-	for (let term of vocab_aggs.terms) {
+	for (let term of conv_aggs.terms) {
 		s_label = term.label		
 		for (var k=0;k<term.abbreviations.length;k++) {
 			abbrev = term.abbreviations[k].toLowerCase()
@@ -146,10 +112,85 @@ function standardize_aggregates(ns_agg) {
 	return s_agg
 }
 
+/*
+// Parses header, returns a Dendra-approved medium or variable 
+// if possible, Unknown otherwise
+function guess_at_header(header,header_part) {                                                                                                                                                                                                                                   
+	boo_match = false
+	if(header_part == "medium") {
+		prefix = "ds_Medium_"
+		terms = conv_mediums.terms
+	} else if(header_part == "variable") {
+		prefix = "ds_Variable_"
+		terms = conv_variables.terms
+	} else {
+		console.log("guess_at_header: header_part not recognized:",header_part)
+		return ""
+	}
+	s_val =  header_part.toUpperCase()+" UNKNOWN" //prefix+"Unknown"
+	header = header.toLowerCase().replace('\n',"")
+	for (let term of terms) {
+		s_label = term.label	
+		if(typeof(term.abbreviations) === "undefined") { continue }
+		for (var k=0;k<term.abbreviations.length;k++) {
+			abbrev = term.abbreviations[k].toLowerCase()
+			//console.log("\t",header,"=?",abbrev)
+			if(header.match(abbrev)) {
+				boo_match = true
+				s_val = prefix+s_label
+				//console.log("\t!",header,"==",abbrev,"-->",s_val)
+			}
+		}
+		if(boo_match == true) { break }
+	}
+	return s_val
+}
+*/
+
+
+// Parses header fieldname, returns a Dendra-approved measurement, medium, variable or Unknown 
+function find_measurement_guess_field(header) {
+	boo_match = false
+	m = {}
+	m.measurement = "UNKNOWN"
+	m.variable = "UNKNOWN"
+	m.medium = "UNKNOWN"
+	m.purpose = "UNKNOWN"
+	m.name = "UNKNOWN"
+ 	header = header.toLowerCase().replace('\n',"").replace(" ","")
+	for (let term of conv_measurements.terms) {	
+		if(typeof(term.abbreviations) === "undefined") { continue }
+		for (var k=0;k<term.abbreviations.length;k++) {
+			abbrev = term.abbreviations[k].toLowerCase()
+			//console.log("\t",header,"=?",abbrev)
+			if(header.match(abbrev)) {
+				boo_match = true
+				//console.log("\t!",header,"==",abbrev,"-->",term.label)
+			}
+		}
+		if(boo_match == true) { 
+			m.measurement = "dq_Measurement_"+term.label
+			m.variable = "ds_Variable_"+term.variable
+			m.medium = "ds_Medium_"+term.medium	
+			m.purpose = "dq_Purpose_"+term.data_purpose
+			if(typeof(term.name) === 'undefined') {
+				m.name = term.label
+			} else {
+				m.name = term.name
+			}	
+			//console.log("guess_at_measurement("+header+")",m)
+			break 
+		}
+	}
+	if(boo_match == false) {
+		console.log("guess_at_measurement("+header+") NOT FOUND!")
+	}
+	return m
+}
+
 // Parses header, tries to match with a unique existing field
 function find_measurement_unique_field(header) {                     
 	boo_match = false
-	measurement_label = "UNKNOWN"
 	f = {}
 	f.measurement = "UNKNOWN"
 	f.variable = "UNKNOWN"
@@ -157,18 +198,26 @@ function find_measurement_unique_field(header) {
 	f.purpose = "UNKNOWN"
 	header = header.toLowerCase().replace('\n',"")
 	// loop through list of exact fieldnames looking for header fieldname
-	for (let term of fields_list.terms) {	
+	for (let term of conv_vocab.terms) {	
 		if(typeof(term.fields) === "undefined") { continue }
 		for (var l=0;l<term.fields.length;l++) {
 			field = term.fields[l].toLowerCase()
-			//console.log("\t",header,"=?",field)
+			//console.log("\t",header,"=?",abbrev)
 			if(header == field) {
 				boo_match = true
-				measurement_label = term.label
-				console.log("\t match!",header,"==",field,"measurement:",measurement_label)
+				f.measurement_label = term.measurement
 				break	
 			}
 		}
+		/*
+		if(boo_match == true) { 
+			f.measurement = "dq_Measurement_"+term.measurement
+			f.variable = "ds_Variable_"+term.variable
+			f.medium = "ds_Medium_"+term.medium	
+			f.purpose = "dq_Purpose_"+term.data_purpose	
+			break 
+		}
+		*/
 	}
 	if(boo_match == false) {
 		console.log("guess_at_measurement_with_field("+header+") NOT FOUND!")
@@ -176,10 +225,8 @@ function find_measurement_unique_field(header) {
 	}
 
 	// Get the rest of the measurement values from the measurements table
-	boo_measurement_label_found = false
-	for (let term of vocab_measurements.terms) {
-		if(term.label == measurement_label) {
-			boo_measurement_label_found = true
+	for (let term of conv_measurements.terms) {
+		if(term.label == f.measurement_label) {
 			f.measurement = "dq_Measurement_"+term.label
 			f.variable = "ds_Variable_"+term.variable
 			f.medium = "ds_Medium_"+term.medium	
@@ -192,17 +239,12 @@ function find_measurement_unique_field(header) {
 			break
 		}
 	}
-	if(boo_measurement_label_found == false) {
-		console.log("find_measurement_unique_field("+header+") CANNOT FIND measurement.label:",measurement_label)
-		process.exit()
-	}
 	return f
 }
 
-//--------------------------------------------------------------------
 // DAT File
 // Parse the header rows of the .dat file
-datfile_content = fs.readFileSync(man.datfile).toString().split("\r")
+datfile_content = fs.readFileSync(datfile).toString().split("\r")
 
 // Row 1 Station Identification 
 //"TOA5","L6_WSSS","CR1000","84249","CR1000.Std.31","CPU:Level 6_2017-09-27.CR1","16291","WeatherStationSS"
@@ -234,11 +276,74 @@ first_date = new Date(str_first_date)  // autoconverts to UTC
 console.log('First Date:',first_date)
 
 
-// STATION
-// Get Station ID from JSON file
-st_json = JSON.parse(fs.readFileSync(man.out_path+man.station+".station.json"))
+//--------------------------------------------------------------------
+// STATION 
+ds_path = "./stations/"+station
+st_json_path = (ds_path+"/"+station_slug+".station.json").toLowerCase()
+boo_station_exists = false
+
+// Create station directory
+if (!fs.existsSync(ds_path)){
+	fs.mkdirSync(ds_path)
+	console.log("Creating Dir:",ds_path)
+} else {
+	console.log("Dir already exists.",ds_path)
+	if(fs.existsSync(st_json_path)) {
+		console.log("Station JSON already exists, skipping to datastreams.")
+		boo_station_exists = true
+	}
+}
+
+//
+// Create a station JSON file, unless one already exists
+if(boo_station_exists == false) {
+	st_json = {  
+	  "enabled": true,
+	  "is_active": true,
+	  "is_stationary": true,
+	  "name": station_name,
+	  "organization_id": orgid,
+	  "slug": station_slug,
+	  "station_type": "weather",
+	  "time_zone": "PST",
+	  "utc_offset": -28800,
+  	"external_refs": [
+	    {
+	    	"identifier":station_name,
+	    	"type":"loggernet_station"
+	    },
+	    {
+	    	"identifier": loggernet_table,
+	    	"type":"loggernet_table"
+	    },
+	    {
+	      "identifier": "station_"+station,
+	      "type": "influx_db"
+	    },
+	    {
+	      "identifier": "source_"+table,
+	      "type": "influx_table_fc"
+	    }
+  	]
+	}
+	// for testing only
+	if(station_slug == "test") {
+		st_json.station_id = new ObjectID()
+	}
+	console.log(st_json)
+
+	// Write JSON file
+	st_json_string = JSON.stringify(st_json,null,2)
+	fs.writeFileSync(st_json_path,st_json_string,'utf-8')
+	console.log("Station JSON exported.  Please upload use the dendra tool to upload, then restart this script.")
+	console.log("den meta push-stations --filespec="+st_json_path+" --save")
+	process.exit()
+}
+
+// Get Station ID from updated JSON file
+st_json = JSON.parse(fs.readFileSync(st_json_path))
 station_id = st_json._id
-console.log("station:",st_json.name,station_id,"manifest:",man.station,"dat:",station_name)
+
 
 //--------------------------------------------------------------------
 // DATASTREAMS
@@ -264,9 +369,9 @@ for (j in headers) {
 
 	// Measurements are the most problematic part of dat2datastream 
 	// Exact matches are best, but do not always work. Guesses can often go wrong. 
-	//g = find_measurement_guess_field(header)  	// Search for measurement using a guess based on fieldname
-	s = find_measurement_unique_field(header)  	// Search for measurement using the exact fieldname
-	/*
+	g = find_measurement_guess_field(header)  	// Search for measurement using a guess based on fieldname
+	u = find_measurement_unique_field(header)  	// Search for measurement using the exact fieldname
+
 	if(match_type == 'guess') {
 		s = g
 		v = u
@@ -274,7 +379,7 @@ for (j in headers) {
 		s = u
 		v = g
 	}
-	
+
 	//console.log("s:",s.measurement,"v:",v.measurement)
 	if(s.measurement == v.measurement && s.medium == v.medium && s.variable == v.variable) {
 		passfail = 'MATCH'
@@ -283,7 +388,6 @@ for (j in headers) {
 		passfail = 'no match'
 		header_validation_fail++
 	}
-	*/
 	
 	if(s.measurement == "dq_Measurement_IGNORE") {
 		header_ignored++
@@ -322,7 +426,6 @@ for (j in headers) {
 	name_purpose = s.purpose.replace('dq_Purpose_','')
 	name_built = s.name+' '+name_agg+' '+header //.replace(/_/g,'')
 	//console.log("name:",name_built)
- 	header_fixed_for_influx = header.replace("(","_").replace(")","_").replace(" ","")
 
 	// Create datastream JSON
 	ds_json[j] = {
@@ -339,7 +442,7 @@ for (j in headers) {
 	          "api": org_slug,
 	          "db": "station_"+station,
 	          "fc": "source_"+table,
-	          "sc": "\"time\", \""+header_fixed_for_influx+"\"",
+	          "sc": "\"time\", \""+header+"\"",
 	          "utc_offset": -28800,
 	          "coalesce": false
 	        }
@@ -351,26 +454,23 @@ for (j in headers) {
 	  "tags": tag_list
 	}
 
-	// Custom Adjustments to Datastreams
 	if(s.measurement == "dq_Measurement_SolarRadiation" && s_unit == "dt_Unit_KiloWattPerSquareMeter") {
 		ds_json[j].datapoints_config.actions = { "evaluate": "v = number(1000 * v)" }
 		s_unit = "dt_Unit_WattPerSquareMeter"
 		name_unit = s_unit.replace('dt_Unit_','')
 	}
 
-	/* Report the results before writing
+	// Report the results before writing
 	console.log(passfail+":",name_built,name_agg,name_unit)
 	if(passfail != 'MATCH') {
 		console.log("\t  HEADER:",header," PARTS:",s.measurement,s.medium,s.variable,s.purpose)
 		console.log("\t HEADERV:",header,"PARTSV:",v.measurement,v.medium,v.variable,v.purpose)
 	}
-	*/
 	// Write JSON file
-	ds_json_string = JSON.stringify(ds_json[j],null,2)
-	//ds_json_path = (ds_path+"/"+station+"_"+header_fixed+".datastream.json").toLowerCase()
-	ds_json_path = (man.out_path+header_fixed_for_influx+".datastream.json").toLowerCase()
-	console.log("\t",ds_json_path)
 	if(boo_write == true) {
+		ds_json_string = JSON.stringify(ds_json[j],null,2)
+		header_fixed = header.replace("(","").replace(")","").replace(" ","")
+		ds_json_path = (ds_path+"/"+station+"_"+header_fixed+".datastream.json").toLowerCase()
 		fs.writeFileSync(ds_json_path,ds_json_string,'utf-8')
 	}
 }
@@ -379,7 +479,7 @@ for (j in headers) {
 // FINISH and upload
 console.log("DONE! Datastreams created for",st_json.name,"\n")
 console.log("Headers total:",headers.length," identified:",header_identified," unknown:",header_unknown," ignored:",header_ignored)
-//console.log("VALIDATION PASS:",header_validation_pass,"FAIL:",header_validation_fail,"\n")
+console.log("VALIDATION PASS:",header_validation_pass,"FAIL:",header_validation_fail,"\n")
 console.log("use Dendra Tool to upload:")
-console.log("den meta push-datastreams --filespec='"+man.out_path+"*.datastream.json' --save")
+console.log("den meta push-datastreams --filespec="+ds_path+"'/*.datastream.json' --save")
 

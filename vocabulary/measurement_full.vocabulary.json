@@ -150,8 +150,8 @@
     },
     { 
       "abbreviations": ["panel_t","ptemp"],
-      "label": "InstrumentTemperature",
-      "name": "Instrument Temperature",
+      "label": "LoggerTemperature",
+      "name": "Logger Temperature",
       "medium": "Instrument",
       "variable": "Temperature",
       "related_terms": {
@@ -404,7 +404,7 @@
       "data_purpose": "StatusInformation"      
     },
     {
-      "abbreviations": ["rain","pcpn"],
+      "abbreviations": ["rain","pcpn","precip"],
       "label": "Rainfall",
       "name": "Rainfall",
       "medium": "Water",
@@ -603,7 +603,7 @@
       "data_purpose": "ReadytoUse"
     },
     {
-      "abbreviations": ["cs616","vwc","vmc","vw_","vw"],
+      "abbreviations": ["cs616","vwc","vmc","vw_","vw","_SM"],
       "label": "SoilMoisture",
       "name": "Soil Moisture",
       "medium": "Soil",
@@ -625,7 +625,7 @@
       "data_purpose": "ReadytoUse"
     },
     {
-      "abbreviations": ["soil_t","SoilTemp","terros"],
+      "abbreviations": ["soil_t","SoilTemp","terros","_ST"],
       "label": "SoilTemperature",
       "name": "Soil Temperature",
       "medium": "Soil",

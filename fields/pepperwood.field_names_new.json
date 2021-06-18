@@ -1,0 +1,209 @@
+{
+  "org_slug": "pepperwood",
+  "terms": [
+    {
+      "fields": [
+        "W_Dir",
+        "ws_2D_Max"
+      ],
+      "label": "UNKNOWN"
+    },
+    {
+      "fields": [
+        "BattV_Min",
+        "BatteryVolts_Avg",
+        "Batt"
+      ],
+      "label": "BatteryVoltage"
+    },
+    {
+      "fields": [
+        "Temp_C_Avg",
+        "AirTC_Avg",
+        "StartTemp_C(1)",
+        "StartTemp_C(2)",
+        "StartTemp_C(3)",
+        "StartTemp_C(4)",
+        "DeltaT_C(1)",
+        "DeltaT_C(2)",
+        "DeltaT_C(3)",
+        "DeltaT_C(4)",
+        "scaleddt(1)",
+        "scaleddt(2)",
+        "scaleddt(3)",
+        "scaleddt(4)",
+        "AirTemp_F_Avg",
+        "FuelTemp_Avg",
+        "SoilMoist1",
+        "SoilMoist2",
+        "SoilMoist3",
+        "SoilMoist4",
+        "SoilT1_F",
+        "SoilT2_F",
+        "SoilT3_F",
+        "SoilT4_F",
+        "DailyMaxGust",
+        "TimeofMaxGust",
+        "DirofMaxGust",
+        "DailyMaxTemp",
+        "DailyMinTemp",
+        "DailyMaxFuelTemp",
+        "LoggerTemp_F_Avg",
+        "RefTemp_C",
+        "YestMaxTemp",
+        "YestMinTemp",
+        "SoilT1_C",
+        "SoilT2_C",
+        "SoilT3_C"
+      ],
+      "label": "AirTemperature"
+    },
+    {
+      "fields": [
+        "Rain_in_Tot",
+        "Rain_in_2_Tot",
+        "Rain_in_3_Tot",
+        "Rain_in_4_Tot",
+        "Rain_in_5_Tot",
+        "TE525_Rain_Tot",
+        "TE525_Rain_yr",
+        "Davis_Rain_yr",
+        "TE525_Rain",
+        "RainGauge_Tot",
+        "DailyRain"
+      ],
+      "label": "Rainfall"
+    },
+    {
+      "fields": [
+        "LWmV",
+        "LWMDry_Tot",
+        "LWMCon_Tot",
+        "LWMWet_Tot",
+        "LWmV_Avg",
+        "LeafWet15Mins",
+        "Leaf_Wet_mV_Avg",
+        "LWDry15Min",
+        "LWWet15Min",
+        "LWContam15Min"
+      ],
+      "label": "LeafWetness"
+    },
+    {
+      "fields": [
+        "WSpd_ms",
+        "WSp_2D",
+        "WindSpd_WVc(1)",
+        "WindSpd_WVc(2)",
+        "WindSpd_Max",
+        "SoilPerm1",
+        "SoilPerm2",
+        "SoilPerm3",
+        "SoilPerm4",
+        "SoilPeriod1",
+        "SoilPeriod2",
+        "SoilPeriod3",
+        "SoilPeriod4",
+        "Period(1)",
+        "Period(2)",
+        "Period(3)",
+        "Period(4)"
+      ],
+      "label": "Permittivity"
+    },
+    {
+      "fields": [
+        "WS_ms_Max"
+      ],
+      "label": "WindSpeed"
+    },
+    {
+      "fields": [
+        "WDir_2D"
+      ],
+      "label": "WindDirection"
+    },
+    {
+      "fields": [
+        "SlrkW_Avg",
+        "SlrMJ_Tot"
+      ],
+      "label": "SolarRadiation"
+    },
+    {
+      "fields": [
+        "RH_Avg"
+      ],
+      "label": "RelativeHumidity"
+    },
+    {
+      "fields": [
+        "BP_mmHg_Avg"
+      ],
+      "label": "BarometricPressure"
+    },
+    {
+      "fields": [
+        "PA_mS(1)",
+        "PA_mS(2)",
+        "PA_mS(3)",
+        "PA_mS(4)"
+      ],
+      "label": "SoilMoisturePeriod"
+    },
+    {
+      "fields": [
+        "VWC(1)",
+        "VWC(2)",
+        "VWC(3)",
+        "VWC(4)",
+        "Cum_VWC",
+        "WindDir_SMM",
+        "SoilVWC1",
+        "SoilVWC2",
+        "SoilVWC3"
+      ],
+      "label": "SoilMoisture"
+    },
+    {
+      "fields": [
+        "WaterPotent(1)",
+        "WaterPotent(2)",
+        "WaterPotent(3)",
+        "WaterPotent(4)"
+      ],
+      "label": "Resistance"
+    },
+    {
+      "fields": [
+        "DewPt_F_Avg"
+      ],
+      "label": "DewPoint"
+    },
+    {
+      "fields": [
+        "FuelMoisture_Avg",
+        "DailyMinFuelMoisture"
+      ],
+      "label": "FuelMoisture"
+    },
+    {
+      "fields": [
+        "SoilEC1",
+        "SoilEC2",
+        "SoilEC3",
+        "SoilEC4"
+      ],
+      "label": "ElectricalConductivity"
+    },
+    {
+      "fields": [
+        "SoilVoltR1",
+        "SoilVoltR2",
+        "SoilVoltR3",
+        "SoilVoltR4"
+      ],
+      "label": "InstrumentVoltage"
+    }
+  ]
+}
