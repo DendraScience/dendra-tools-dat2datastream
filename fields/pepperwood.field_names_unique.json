@@ -16,21 +16,19 @@
     },
     {
       "fields": [
-        "StartTemp_C(1)",
-        "StartTemp_C(2)",
-        "StartTemp_C(3)",
-        "StartTemp_C(4)",
-        "DeltaT_C(1)",
-        "DeltaT_C(2)",
-        "DeltaT_C(3)",
-        "DeltaT_C(4)",
         "scaleddt(1)",
         "scaleddt(2)",
         "scaleddt(3)",
         "scaleddt(4)",
-        "FuelTemp_Avg",
-        "DailyMaxFuelTemp",
-        "TimeofMaxGust"
+        "TimeofMaxGust",
+        "DeltaT_C(1)",
+        "DeltaT_C(2)",
+        "DeltaT_C(3)",
+        "DeltaT_C(4)",
+        "StartTemp_C(1)",
+        "StartTemp_C(2)",
+        "StartTemp_C(3)",
+        "StartTemp_C(4)"
       ],
       "label": "UNKNOWN"
     },
@@ -57,7 +55,7 @@
         "DailyMaxTemp",
         "DailyMinTemp",
         "YestMaxTemp",
-        "YestMinTemp",
+        "YestMinTemp"
       ],
       "label": "AirTemperature"
     },
@@ -109,7 +107,12 @@
         "SoilPerm1",
         "SoilPerm2",
         "SoilPerm3",
-        "SoilPerm4",
+        "SoilPerm4"
+      ],
+      "label": "Permittivity"
+    },
+    {
+      "fields": [
         "SoilPeriod1",
         "SoilPeriod2",
         "SoilPeriod3",
@@ -117,9 +120,13 @@
         "Period(1)",
         "Period(2)",
         "Period(3)",
-        "Period(4)"
+        "Period(4)",
+        "PA_mS(1)",
+        "PA_mS(2)",
+        "PA_mS(3)",
+        "PA_mS(4)"
       ],
-      "label": "Permittivity"
+      "label": "SoilMoisturePeriod"
     },
     {
       "fields": [
@@ -127,7 +134,6 @@
         "WSp_2D",
         "ws_2D_Max",
         "WindSpd_WVc(1)",
-        "WindSpd_WVc(2)",
         "WindSpd_Max",
         "DailyMaxGust",
         "WS_ms_Max"
@@ -136,6 +142,7 @@
     },
     {
       "fields": [
+        "WindSpd_WVc(2)",
         "WDir_2D",
         "W_Dir",
         "DirofMaxGust",
@@ -161,15 +168,6 @@
         "BP_mmHg_Avg"
       ],
       "label": "BarometricPressure"
-    },
-    {
-      "fields": [
-        "PA_mS(1)",
-        "PA_mS(2)",
-        "PA_mS(3)",
-        "PA_mS(4)"
-      ],
-      "label": "SoilMoisturePeriod"
     },
     {
       "fields": [

@@ -102,7 +102,7 @@ blank_mmeasurement = {
 function standardize_units(ns_unit) {
 	boo_match = false
 	s_unit = "UNKNOWN" //ns_unit
-	ns_unit = ns_unit.toLowerCase().replace('\n',"")
+	ns_unit = ns_unit.toLowerCase().replace('\n',"").replace(' ','')
 	for (let term of vocab_units.terms) {
 		s_label = term.label		
 		for (var k=0;k<term.abbreviations.length;k++) {
@@ -111,7 +111,7 @@ function standardize_units(ns_unit) {
 			if(ns_unit === abbrev) {
 				boo_match = true
 				s_unit = 'dt_Unit_'+s_label
-				//console.log("\tMATCH!",ns_unit,"==",abbrev,"-->",s_label)
+				console.log("\t MATCH! unit:",ns_unit,"==",abbrev,"-->",s_label)
 			}
 		}
 		if(boo_match == true) { break }
@@ -165,7 +165,7 @@ function find_measurement_unique_field(header) {
 			if(header == field) {
 				boo_match = true
 				measurement_label = term.label
-				console.log("\t match!",header,"==",field,"measurement:",measurement_label)
+				console.log("\t MATCH! measurement:",header,"==",field,"measurement:",measurement_label)
 				break	
 			}
 		}
@@ -239,6 +239,10 @@ console.log('First Date:',first_date)
 st_json = JSON.parse(fs.readFileSync(man.out_path+man.station+".station.json"))
 station_id = st_json._id
 console.log("station:",st_json.name,station_id,"manifest:",man.station,"dat:",station_name)
+if(typeof st_json._id === 'undefined') {
+	console.log("dat2datastream: station_id is UNDEFINED. Please create station in Dendra before processing datastreams. Exiting.")
+	process.exit()
+}
 
 //--------------------------------------------------------------------
 // DATASTREAMS
@@ -369,7 +373,7 @@ for (j in headers) {
 	ds_json_string = JSON.stringify(ds_json[j],null,2)
 	//ds_json_path = (ds_path+"/"+station+"_"+header_fixed+".datastream.json").toLowerCase()
 	ds_json_path = (man.out_path+header_fixed_for_influx+".datastream.json").toLowerCase()
-	console.log("\t",ds_json_path)
+	console.log(header_fixed_for_influx+".datastream.json") // "datastream:",ds_json_path)
 	if(boo_write == true) {
 		fs.writeFileSync(ds_json_path,ds_json_string,'utf-8')
 	}

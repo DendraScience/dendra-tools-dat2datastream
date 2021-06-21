@@ -98,7 +98,7 @@
       "label": "Hertz"
     },
     {
-      "abbreviations": ["in","inches","h20 inches"],
+      "abbreviations": ["in","inches","h20 inches","inch"],
       "label": "Inch"
     },
     {
