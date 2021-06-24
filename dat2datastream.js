@@ -117,7 +117,7 @@ function standardize_units(ns_unit) {
 		if(boo_match == true) { break }
 	}
 	if(boo_match == false) {
-		console.log("\t",ns_unit,s_unit)
+		console.log("\tstandardize_units(",ns_unit,"): not found",s_unit)
 	}
 	return s_unit
 }
@@ -255,13 +255,15 @@ header_validation_pass = 0
 
 // Loop through header field names and generate datastreams
 // ns_ prefix means 'non standard', s_ prefix means 'standardized' 
+console.log(units)
 for (j in headers) {
 	ds_json = {}
-	passfail = 'FAIL'
+	//passfail = 'FAIL'
 	header = headers[j].replace('"','').replace('"','').replace("\n","")
-	ns_unit = units[j].replace('"','').replace('"','')
+	ns_unit = units[j].replace('"','').replace('"','').replace("\n","")
 	s_unit = standardize_units(ns_unit)
-	ns_agg = aggs[j].replace('"','').replace('"','')
+	//console.log(j,header,"ns_unit:",ns_unit,"s_unit:",s_unit)
+	ns_agg = aggs[j].replace('"','').replace('"','').replace("\n","")
 	s_agg = standardize_aggregates(ns_agg)
 	s_function = ""
 	tag_list = []
@@ -324,7 +326,7 @@ for (j in headers) {
 	name_agg = s_agg.replace('ds_Aggregate_','')
 	name_unit = s_unit.replace('dt_Unit_','')
 	name_purpose = s.purpose.replace('dq_Purpose_','')
-	name_built = s.name+' '+name_agg+' '+header //.replace(/_/g,'')
+	name_built = s.name+' '+name_agg+' ('+header+')' //.replace(/_/g,'')
 	//console.log("name:",name_built)
  	header_fixed_for_influx = header.replace("(","_").replace(")","_").replace(" ","")
 
@@ -351,6 +353,12 @@ for (j in headers) {
 	      "begins_at": first_date,
 	      "path": "/influx/select"
 	    }
+	  ],
+	  "external_refs": [
+	  	{
+	      "identifier": header,
+  	    "type": "field_name"
+	  	}
 	  ],
 	  "tags": tag_list
 	}
