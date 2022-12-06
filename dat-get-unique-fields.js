@@ -73,6 +73,9 @@ function is_field_unique(header) {
 // Parses header fieldname, returns a Dendra-approved measurement, medium, variable or Unknown 
 function find_measurement_guess_field(header) {
  	header = header.toLowerCase().replace('\n',"").replace(" ","")
+ 	if(header.match("_flag")) {  // This is specific to DRI files, which have an _flag condition column.
+ 		return "IGNORE"
+ 	}
 	for (let term of vocab_measurements.terms) {	
 		if(typeof(term.abbreviations) === "undefined") { continue }
 		for (let abbrev of term.abbreviations) {
@@ -94,9 +97,9 @@ function find_measurement_guess_field(header) {
 // Check each DAT file in directory for unique fields
 fs.readdirSync(datdir).forEach(datfile => {
 	if(datfile.match(".dat")) {
-		console.log(datfile)
+		console.log(datdir+datfile)
 		// Parse the header rows of the .dat file
-		datfile_content = fs.readFileSync(datdir+datfile).toString().split("\r")
+		datfile_content = fs.readFileSync(datdir+datfile).toString().split("\r\n")
 		headers = datfile_content[1].split(',')
 		console.log(datfile,headers.length)
 		//console.log("\t headers:")
@@ -150,6 +153,9 @@ for (let nufield of new_unique_fields) {
 if(boo_write == true) {
 	new_terms_string = JSON.stringify(new_terms,null,2)
 	fs.writeFileSync("fields/"+org_slug+".field_names_new.json",new_terms_string,'utf-8')
+	// temp remove
+	//new_fields_string = JSON.stringify(new_fields,null,2)
+	//fs.writeFileSync("fields/"+org_slug+".field_names_all.json",new_fields_string,'utf-8')
 }
 
 // List new headers found

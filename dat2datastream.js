@@ -14,7 +14,7 @@ fs = require("fs")
 // Argument processing of paths
 args = process.argv.slice(1)
 manifest_path = args[1]
-boo_write = true
+boo_write = 'update'
 //console.log("args.length:",args.length)
 //console.log(args)
 
@@ -326,7 +326,7 @@ for (j in headers) {
 	name_agg = s_agg.replace('ds_Aggregate_','')
 	name_unit = s_unit.replace('dt_Unit_','')
 	name_purpose = s.purpose.replace('dq_Purpose_','')
-	name_built = s.name+' '+name_agg+' ('+header+')' //.replace(/_/g,'')
+	name_built = s.name+' '+name_agg  //+' ('+header+')' //.replace(/_/g,'')
 	//console.log("name:",name_built)
  	header_fixed_for_influx = header.replace("(","_").replace(")","_").replace(" ","")
 
@@ -377,12 +377,21 @@ for (j in headers) {
 		console.log("\t HEADERV:",header,"PARTSV:",v.measurement,v.medium,v.variable,v.purpose)
 	}
 	*/
+
+	/*
+ 	 Update Datastream: if the datastream has already been uploaded
+ 	 but you want to redo it, set can_overwrite = 'update'.  Then the
+ 	 datastream_id will be retrieved before the file is overwritten.
+ 	*/
+ 	ds_json_path = (man.out_path+header_fixed_for_influx+".datastream.json").toLowerCase()
+ 	if(boo_write == 'update' && fs.existsSync(ds_json_path)) {
+ 		ds_temp = JSON.parse(fs.readFileSync(ds_json_path))
+ 		ds_json[j]._id = ds_temp._id
+ 	}
 	// Write JSON file
 	ds_json_string = JSON.stringify(ds_json[j],null,2)
-	//ds_json_path = (ds_path+"/"+station+"_"+header_fixed+".datastream.json").toLowerCase()
-	ds_json_path = (man.out_path+header_fixed_for_influx+".datastream.json").toLowerCase()
 	console.log(header_fixed_for_influx+".datastream.json") // "datastream:",ds_json_path)
-	if(boo_write == true) {
+	if(boo_write == 'update') {
 		fs.writeFileSync(ds_json_path,ds_json_string,'utf-8')
 	}
 }

@@ -154,10 +154,11 @@ if(boo_station_exists == false) {
 	}
 
 	// Customizations by organization
+	maintainer = "T&B Systems, Inc."  //"WesternWeatherGroup"
 	if(org_slug == 'cdfw') {
 		ww = {
-			"identifier": "WesternWeatherGroup",
-    	"type": "Maintainer"	
+			"identifier": maintainer,
+    		"type": "Maintainer"	
 		}
 		st_json['external_refs'].push(ww)
 	}

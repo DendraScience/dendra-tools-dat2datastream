@@ -149,7 +149,7 @@
       "data_purpose": "ReadytoUse"
     },
     { 
-      "abbreviations": ["panel_t","ptemp"],
+      "abbreviations": ["panel_t","ptemp","PanelT"],
       "label": "LoggerTemperature",
       "name": "Logger Temperature",
       "medium": "Instrument",
@@ -188,7 +188,6 @@
           "Status"
         ]
       },
-      "data_purpose": "StatusInformation",
       "units": [
         "Volt"
       ],
@@ -254,12 +253,12 @@
       "medium": "Water",
       "variable": "DissolvedOxygen",
       "data_purpose": "ReadytoUse"
-    },    
+    }, 
     {
-      "abbreviations": ["FuelM"],
-      "label": "FuelMoisture",
-      "name": "Fuel Moisture",
-      "medium": "Instrument",
+      "abbreviations": ["PA_uS"],
+      "label": "FuelMoisturePeriodAverage",
+      "name": "Fuel Moisture Period Average",
+      "medium": "Wood",
       "variable": "Moisture",
       "related_terms": {
         "more_general": [
@@ -270,6 +269,46 @@
           "Leaf Wetness",
           "Fuel Load",
           "Fuel Temperature"
+        ]
+      },
+      "data_purpose": "Raw"
+    },   
+    {
+      "abbreviations": ["FuelM","FuelMoist"],
+      "label": "FuelMoisture",
+      "name": "Fuel Moisture",
+      "medium": "Wood",
+      "variable": "Moisture",
+      "related_terms": {
+        "more_general": [
+          "Fire"
+        ],
+        "more_specific": [
+          "Dew Point", 
+          "Leaf Wetness",
+          "Fuel Load",
+          "Fuel Temperature",
+          "FuelMoisturePeriodAverage"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["FuelTemp_C"],
+      "label": "FuelTemperature",
+      "name": "Fuel Temperature",
+      "medium": "Wood",
+      "variable": "Temperature",
+      "related_terms": {
+        "more_general": [
+          "Fire"
+        ],
+        "more_specific": [
+          "Dew Point", 
+          "Leaf Wetness",
+          "Fuel Load",
+          "Fuel Moisture",
+          "FuelMoisturePeriodAverage"
         ]
       },
       "data_purpose": "ReadytoUse"
@@ -308,6 +347,50 @@
       },
       "data_purpose": "ReadytoUse"
     },
+    {
+      "abbreviations": ["Tilt"],
+      "label": "InstrumentTilt",
+      "name": "Instrument Tilt",
+      "medium": "Instrument",
+      "variable": "Direction",
+      "related_terms": {
+        "more_specific": [
+          "InstrumentTiltNorthSouth",
+          "InstrumentTiltEastWest"
+        ]
+      },
+      "data_purpose": "StatusInformation"
+    },
+    {
+      "abbreviations": ["InstTemp"],
+      "label": "InstrumentStatus",
+      "name": "Instrument Status",
+      "medium": "Instrument",
+      "variable": "Count",
+      "related_terms": {
+        "more_specific": [
+          "EnclosureRelativeHumidity",
+          "RainGaugeTemperature",
+          "LoggerTemperature"
+        ]
+      },
+      "data_purpose": "StatusInformation"
+    },
+    {
+      "abbreviations": ["InstTemp"],
+      "label": "InstrumentTemperature",
+      "name": "Instrument Temperature",
+      "medium": "Instrument",
+      "variable": "Temperature",
+      "related_terms": {
+        "more_specific": [
+          "EnclosureRelativeHumidity",
+          "RainGaugeTemperature",
+          "LoggerTemperature"
+        ]
+      },
+      "data_purpose": "StatusInformation"
+    },    
     {
       "abbreviations": ["volt"],
       "label": "InstrumentVoltage",
@@ -769,7 +852,20 @@
       "data_purpose": "ReadytoUse"
     },
     {
-      "abbreviations": ["level","lvl"],
+      "abbreviations": ["Tide_Ht"],
+      "label": "TideHeight",
+      "name": "Tide Height",
+      "medium": "Water",
+      "variable": "Height",
+      "related_terms": {
+        "more_general": [
+          "Water Level"
+        ]
+      },
+      "data_purpose": "ReadytoUse"
+    },
+    {
+      "abbreviations": ["level","lvl","Dist2H2O"],
       "label": "WaterLevel",
       "name": "Water Level",
       "medium": "Water",
@@ -845,6 +941,14 @@
     },
     {
       "label":"SHORT FIELDS AT BOTTOM. CATCHALL"
+    },
+    {
+      "fields": [
+        "Q"
+      ],
+      "label": "SignalQuality",
+      "name": "Siganl Quality",
+      "data_purpose": "StatusInformation"
     },
     {
       "abbreviations": ["ec"],
