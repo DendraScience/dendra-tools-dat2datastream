@@ -15,7 +15,14 @@
       "label": "IGNORE"
     },
     {
-      "fields": [],
+      "fields": [
+        "EToHr_in",
+        "DailyETo",
+        "Cell_RSSI",
+        "Cell_UseToday",
+        "WindChillHr",
+        "HeatIndexHr"
+      ],
       "label": "UNKNOWN"
     },
     {
@@ -29,7 +36,10 @@
       "fields": [
         "AirT_C_Avg",
         "AirT_C_Max",
-        "AirT_C_Min"
+        "AirT_C_Min",
+        "AirTemp_F_Avg",
+        "DailyMaxTempF",
+        "DailyMinTempF"
       ],
       "label": "AirTemperature"
     },
@@ -42,14 +52,19 @@
     },
     {
       "fields": [
-        "DewPt_C_Avg"
+        "DewPt_C_Avg",
+        "DewPt_F_Avg"
       ],
       "label": "DewPoint"
     },
     {
       "fields": [
         "WS_ms_WVc(1)",
-        "WS_ms_Max"
+        "WS_ms_Max",
+        "WindSpd_mph_WVc(1)",
+        "WindSpd_mph_WVc(2)",
+        "DailyMaxWind_mph",
+        "WindSpd_mph_Max"
       ],
       "label": "WindSpeed"
     },
@@ -64,7 +79,8 @@
       "fields": [
         "SlrW_Avg",
         "SlrW_Max",
-        "SlrW_Min"
+        "SlrW_Min",
+        "SolarRad_Wm2_Avg"
       ],
       "label": "SolarRadiation"
     },
@@ -72,7 +88,8 @@
       "fields": [
         "PAR_Den_Avg",
         "PAR_Den_Max",
-        "PAR_Den_Min"
+        "PAR_Den_Min",
+        "PAR_Den_umol_m2_s_Avg"
       ],
       "label": "PhotosyntheticallyActiveRadiation"
     },
@@ -81,13 +98,20 @@
         "BPAct_hPa_Avg",
         "BPAct_hPa_Min",
         "PressureSLA_mb_Avg",
-        "PressureSLA_mb_Min"
+        "PressureSLA_mb_Min",
+        "PressureSLA_inHg_Avg"
       ],
       "label": "BarometricPressure"
     },
     {
       "fields": [
-        "Rain_mm_Tot"
+        "Rain_mm_Tot",
+        "Rain_In_Tot",
+        "Rain24Hr_In",
+        "DailyRain_In",
+        "StormRain_In",
+        "MonthRain_In",
+        "WaterYrRain_In"
       ],
       "label": "Rainfall"
     },
@@ -97,6 +121,7 @@
         "SoilMoist1_8In_Avg",
         "SoilMoist2_16In_Avg",
         "SoilMoist3_24In_Avg",
+        "SoilMoist_24In_Avg",
         "SoilMoist4_32In_Avg",
         "SoilMoist5_40In_Avg",
         "SoilMoist6_48In_Avg"
@@ -109,11 +134,66 @@
         "SoilTemp1_8In_C_Avg",
         "SoilTemp2_16In_C_Avg",
         "SoilTemp3_24In_C_Avg",
+        "SoilTemp_24In_C_Avg",
         "SoilTemp4_32In_C_Avg",
         "SoilTemp5_40In_C_Avg",
-        "SoilTemp6_48In_C_Avg"
+        "SoilTemp6_48In_C_Avg",
+        "SoilTemp1_8In_F_Avg",
+        "SoilTemp2_16In_F_Avg",
+        "SoilTemp3_24In_F_Avg",
+        "SoilTemp4_32In_F_Avg",
+        "SoilTemp5_40In_F_Avg",
+        "SoilTemp6_48In_F_Avg"
       ],
       "label": "SoilTemperature"
+    },
+    {
+      "fields": [
+        "Strikes_Tot"
+      ],
+      "label": "LightningStrikes"
+    },
+    {
+      "fields": [
+        "StrikeDist_km_Avg",
+        "StrikeDist_miles_Avg"
+      ],
+      "label": "LightningStrikeDistance"
+    },
+    {
+      "fields": [
+        "Dist2H2O_m_Avg",
+        "Dist2H2O_m_Max",
+        "Dist2H2O_m_Min"
+      ],
+      "label": "WaterLevel"
+    },
+    {
+      "fields": [
+        "Tide_Ht_m_Avg",
+        "Tide_Ht_m_Max",
+        "Tide_Ht_m_Min"
+      ],
+      "label": "TideHeight"
+    },
+    {
+      "fields": [
+        "FuelMoist"
+      ],
+      "label": "FuelMoisture"
+    },
+    {
+      "fields": [
+        "FuelTemp_C"
+      ],
+      "label": "FuelTemperature"
+    },
+    {
+      "fields": [
+        "TiltNS_deg_Avg",
+        "TiltWE_deg_Avg"
+      ],
+      "label": "InstrumentTilt"
     }
   ]
 }

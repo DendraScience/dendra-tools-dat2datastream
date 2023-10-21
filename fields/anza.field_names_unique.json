@@ -1,0 +1,18 @@
+{
+  "org_slug": "anza",
+  "terms": [
+    {
+      "fields": [
+        "timestamp",
+        "record",
+        "day_of_year",
+        "_day_of_year",
+        "hourmin",
+        "sta_id",
+        "stationnum",
+        "cvmeta"
+      ],
+      "label": "IGNORE"
+    }
+  ]
+}

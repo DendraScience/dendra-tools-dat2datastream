@@ -1,0 +1,92 @@
+{
+  "org_slug": "anza",
+  "terms": [
+    {
+      "fields": [
+        "Flow",
+        "WS_mh_Max",
+        "shf_Avg(1)",
+        "shf_Avg(2)",
+        "shf_Avg(3)",
+        "shf_Avg(4)",
+        "shf_cal(1)",
+        "shf_cal(2)",
+        "shf_cal(3)",
+        "shf_cal(4)"
+      ],
+      "label": "UNKNOWN"
+    },
+    {
+      "fields": [
+        "AvgPartL"
+      ],
+      "label": "PhotosyntheticallyActiveRadiation"
+    },
+    {
+      "fields": [
+        "AvgTemp",
+        "Status",
+        "AirTempF",
+        "TCAV_1_Avg",
+        "TCAV_2_Avg",
+        "AirTempF_Min",
+        "AirTempF_Max"
+      ],
+      "label": "AirTemperature"
+    },
+    {
+      "fields": [
+        "AvgRH",
+        "RH"
+      ],
+      "label": "RelativeHumidity"
+    },
+    {
+      "fields": [
+        "AvgBP",
+        "BP_mmHg"
+      ],
+      "label": "BarometricPressure"
+    },
+    {
+      "fields": [
+        "Batt",
+        "BattV_Min"
+      ],
+      "label": "BatteryVoltage"
+    },
+    {
+      "fields": [
+        "VW",
+        "VW_Max",
+        "VW_Min",
+        "VW_Avg"
+      ],
+      "label": "SoilMoisture"
+    },
+    {
+      "fields": [
+        "Rain_hr_mm",
+        "Rain_day_mm",
+        "Rain_day_in"
+      ],
+      "label": "Rainfall"
+    },
+    {
+      "fields": [
+        "SlrkW",
+        "SlrkW_Avg",
+        "SlrkW_Max",
+        "SlrkW_TMx",
+        "SlrMJ_Tot"
+      ],
+      "label": "SolarRadiation"
+    },
+    {
+      "fields": [
+        "PTemp_C"
+      ],
+      "label": "LoggerTemperature"
+    }
+  ]
+}

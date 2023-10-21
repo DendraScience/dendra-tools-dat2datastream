@@ -1,0 +1,60 @@
+{
+  "org_slug": "lter",
+  "terms": [
+    {
+      "fields": [
+        "timestamp",
+        "record",
+        "day_of_year",
+        "_day_of_year",
+        "hourmin",
+        "Sitename",
+        "sta_id",
+        "stationnum",
+        "cvmeta"
+      ],
+      "label": "IGNORE"
+    },
+    {
+      "fields": [
+        "Relative_Humidity_Avg"        
+      ],
+      "label": "RelativeHumidity"
+    },
+    {
+      "fields": [
+        "Ppt_mm_Tot"  
+      ],
+      "label": "Rainfall"
+    },
+    {
+      "fields": [
+        "Air_TempC_Avg"
+      ],
+      "label": "AirTemperature"
+    },
+    {
+      "fields": [
+        "Ptemp_C_Avg"
+      ],
+      "label": "LoggerTemperature"
+    },
+    {
+      "fields": [
+        "WinDir_Std_Dev",
+        "WinDir_mean_Resultant"
+      ],
+      "label": "WindDirection"
+    },
+    {
+      "fields": [
+        "WS_ms_75cm_Avg",
+        "WS_ms_150cm_Avg",
+        "WS_ms_300cm_Avg",
+        "Ws_Mean_300cm",
+        "Ws_mean_Resultant_300cm"
+      ],
+      "label": "WindSpeed"
+    }
+  ]
+}

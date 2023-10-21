@@ -23,6 +23,22 @@ if(args.length != 2) {
 
 console.log("dat2station: creating station from "+datfile+" for "+org_slug)
 
+function camel2snake(str) {
+	snake = str.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`)
+	if(snake[0] == '-') {
+		snake = snake.replace('-','')
+	}
+	return snake
+}
+
+function camel2space(str) {
+	snake = str.replace(/[A-Z]/g, letter => ` ${letter}`)
+	if(snake[0] == ' ') {
+		snake = snake.replace(' ','')
+	}
+	return snake
+}
+
 // Organization ID and slug
 // NOTE: this should eventually be an online query to dendra via api. Problem is everything else is offline.
 if(org_slug == "erczo") {
@@ -41,6 +57,8 @@ if(org_slug == "erczo") {
 	orgid = "5eb41ff0883adf89568569d0"	
 } else if(org_slug == "cdfw") {
 	orgid = "6092b070492ae15e05876ed8"
+} else if(org_slug == "lter") {
+	orgid = "63c1a0173e9c2780ea16389b"
 } else {
 	console.log("organization not recognized. quitting.")
 	console.log("usage: node dat2station.js <org_slug> <datfile_name>")
@@ -67,11 +85,11 @@ datfile_content = fs.readFileSync(datfile).toString().split("\r")
 // Row 1 Station Identification 
 //"TOA5","L6_WSSS","CR1000","84249","CR1000.Std.31","CPU:Level 6_2017-09-27.CR1","16291","WeatherStationSS"
 row1 = datfile_content[0].split(',')
-station_name = row1[1].replace('"','').replace('"','')
-station = station_name.toLowerCase()
-station_slug = station.replace(/_/g,'-')
-station_title = station_name.replace(/_/g,' ').replace(/-/g,' ')
-loggernet_table = row1[7].replace('"','').replace('"','')
+station_name = row1[1].replaceAll('"','')
+station = camel2space(station_name)
+station_slug = camel2snake(station_name,'-')
+station_title = station.replaceAll(/_/g,' ').replaceAll(/-/g,' ')
+loggernet_table = row1[7].replaceAll('"','')
 table = loggernet_table.toLowerCase()
 console.log("Organization:",org_slug,"Station:",station,"Table:",table)
 
@@ -96,7 +114,7 @@ console.log("str_first_date: "+str_first_date)
 
 //--------------------------------------------------------------------
 // STATION 
-ds_path = "stations/"+station+"/"
+ds_path = "stations/"+station_slug+"/"
 st_json_path = (ds_path+station_slug+".station.json").toLowerCase()
 boo_station_exists = false
 
@@ -119,7 +137,7 @@ if(boo_station_exists == false) {
 	  "enabled": true,
 	  "is_active": true,
 	  "is_stationary": true,
-	  "name": station_name,
+	  "name": station_title,
 	  "organization_id": orgid,
 	  "slug": station_slug,
 	  "station_type": "weather",
@@ -135,7 +153,7 @@ if(boo_station_exists == false) {
 	    	"type":"loggernet_table"
 	    },
 	    {
-	      "identifier": "station_"+station,
+	      "identifier": "station_"+station_name.toLowerCase(),
 	      "type": "influx_db"
 	    },
 	    {
@@ -154,7 +172,7 @@ if(boo_station_exists == false) {
 	}
 
 	// Customizations by organization
-	maintainer = "T&B Systems, Inc."  //"WesternWeatherGroup"
+	maintainer = "WesternWeatherGroup"  //  "T&B Systems, Inc."
 	if(org_slug == 'cdfw') {
 		ww = {
 			"identifier": maintainer,

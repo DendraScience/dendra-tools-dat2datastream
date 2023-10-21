@@ -78,6 +78,8 @@ if(org_slug == "erczo") {
 	orgid = "5eb41ff0883adf89568569d0"	
 } else if(org_slug == "cdfw") {
 	orgid = "6092b070492ae15e05876ed8"
+} else if(org_slug == "lter") {
+	orgid = "63c1a0173e9c2780ea16389b"
 } else {
 	console.log("organization not recognized. quitting.")
 	process.exit(1)

@@ -1,0 +1,49 @@
+{
+  "org_slug": "ucnrs",
+  "terms": [
+    {
+      "fields": [
+        "Flow"
+      ],
+      "label": "UNKNOWN"
+    },
+    {
+      "fields": [
+        "TIMESTAMP",
+        "RECORD"
+      ],
+      "label": "IGNORE"
+    },
+    {
+      "fields": [
+        "AvgPartL"
+      ],
+      "label": "PhotosyntheticallyActiveRadiation"
+    },
+    {
+      "fields": [
+        "AvgTemp",
+        "Status"
+      ],
+      "label": "AirTemperature"
+    },
+    {
+      "fields": [
+        "AvgRH"
+      ],
+      "label": "RelativeHumidity"
+    },
+    {
+      "fields": [
+        "AvgBP"
+      ],
+      "label": "BarometricPressure"
+    },
+    {
+      "fields": [
+        "Batt"
+      ],
+      "label": "BatteryVoltage"
+    }
+  ]
+}

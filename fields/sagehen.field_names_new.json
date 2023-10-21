@@ -1,0 +1,264 @@
+{
+  "org_slug": "sagehen",
+  "terms": [
+    {
+      "fields": [
+        "1)",
+        "2)",
+        "3)",
+        "4)",
+        "eR_Avg(1)",
+        "eR_Avg(2)",
+        "eR_Avg(3)",
+        "eI_Avg(1)",
+        "eI_Avg(2)",
+        "eI_Avg(3)",
+        "wfv_Avg(1)",
+        "wfv_Avg(2)",
+        "wfv_Avg(3)",
+        "NaCI_Avg(1)",
+        "NaCI_Avg(2)",
+        "NaCI_Avg(3)",
+        "Hour",
+        "Rso",
+        "SWE_cm_Avg",
+        "SWE_cm_Min",
+        "SWE_cm_Max",
+        "SWE_mV_Avg",
+        "Geo_inch",
+        "Geonor_Hz",
+        "Misc_Number_1",
+        "Misc_Number_2",
+        "GEONOR_GAUGE_FREQ_HZ"
+      ],
+      "label": "UNKNOWN"
+    },
+        {
+      "fields": [
+        "SoilCond_Avg(1)",
+        "SoilCond_Avg(2)",
+        "SoilCond_Avg(3)"
+      ],
+      "label": "ElectricalConductivity"
+    },
+    {
+      "fields": [
+        "Vraw_Avg(1",
+        "Vraw_Avg(2",
+        "Vraw_Avg(3"
+      ],
+      "label": "VoltageRatio"
+    },
+    {
+      "fields": [
+        "SoilType_Avg(1)",
+        "SoilType_Avg(2)",
+        "SoilType_Avg(3)",
+        "Temp_C_Avg(1)",
+        "Temp_C_Avg(2)",
+        "Temp_C_Avg(3)",
+        "eR_tc_Avg(1)",
+        "eR_tc_Avg(2)",
+        "eR_tc_Avg(3)",
+        "eI_tc_Avg(1)",
+        "eI_tc_Avg(2)",
+        "eI_tc_Avg(3)",
+        "SoilCond_tc_Avg(1)",
+        "SoilCond_tc_Avg(2)",
+        "SoilCond_tc_Avg(3)",
+        "res_WS_25ft",
+        "AirTC_25ft_Max",
+        "AirTC_25ft_Min",
+        "AirTC_25ft_Avg",
+        "ETos",
+        "JUDD_AT_Avg",
+        "JUDD_Depth_Avg",
+        "cum_ppt",
+        "AirTC_100ft_Avg",
+        "Air_T_C_Max",
+        "Air_T_C_Min",
+        "Air_T_C_Avg",
+        "res_WS_100ft",
+        "AirTC_100ft_Max",
+        "AirTC_100ft_Min",
+        "ppt_mass_mv_Avg",
+        "ppt_inches_Avg",
+        "Avg_Air_Temp",
+        "Avg_Relative_Humidity",
+        "Station_ID_Number",
+        "Max_Wind_Gust",
+        "Max_Air_Temp",
+        "Min_Air_Temp",
+        "Max_Relative_Humidity",
+        "Min_Relative_Humidity",
+        "Max_Snow_Temp",
+        "Min_Snow_Temp",
+        "Avg_Snow_Temp",
+        "Max_Wind_Gust_100_ft"
+      ],
+      "label": "AirTemperature"
+    },
+    {
+      "fields": [
+        "SoilWaCond_tc_Avg(1)",
+        "SoilWaCond_tc_Avg(2)",
+        "SoilWaCond_tc_Avg(3)"
+      ],
+      "label": "LeafWetness"
+    },
+    {
+      "fields": [
+        "SnowPillow_mv_Avg",
+        "SnowPillow_in_Avg",
+        "Snow_Depth_in_Avg",
+        "Snow_Depth_Milimeters_Number_1",
+        "Max_Snow_Depth_Inches",
+        "Min_Snow_Depth_Inches",
+        "Snow_Depth",
+        "Std_dev_Snow_Depth_Inches"
+      ],
+      "label": "SnowDepth"
+    },
+    {
+      "fields": [
+        "WS_ms_25ft",
+        "WS_ms_25ft_Max",
+        "res_WS_ms_25ft",
+        "WS_ms_100ft",
+        "res_WS_ms_100ft",
+        "WS_ms_100ft_Max",
+        "Mean_Wind_Speed",
+        "Wind_Vector_Magnitude",
+        "Mean_Wind_Speed_100_ft",
+        "Wind_Vector_Speed_100_ft"
+      ],
+      "label": "WindSpeed"
+    },
+    {
+      "fields": [
+        "WindDir_25ft",
+        "SD_WindDir_25ft",
+        "WindDir_100ft",
+        "SD_WindDir_100ft",
+        "Mean_Wind_Direction",
+        "Std_Dev_of_Wind_Direction",
+        "Wind_Direction_100_ft",
+        "Std_Dev_of_Wind_Direction_100_ft"
+      ],
+      "label": "WindDirection"
+    },
+    {
+      "fields": [
+        "RH_25ft_Max",
+        "RH_25ft_Min",
+        "RH_25ft",
+        "RH_100ft",
+        "RH_Max",
+        "RH_Min",
+        "RH_Avg",
+        "RH_100ft_Max",
+        "RH_100ft_Min"
+      ],
+      "label": "RelativeHumidity"
+    },
+    {
+      "fields": [
+        "Batt_Volt_Avg",
+        "Batt_Volt_Max",
+        "Batt_Volt_Min",
+        "Battery_Voltage",
+        "Max_Battery_Voltage",
+        "Min_Battery_Voltage"
+      ],
+      "label": "BatteryVoltage"
+    },
+    {
+      "fields": [
+        "BP_mbar_Avg",
+        "Barometric_Pressure"
+      ],
+      "label": "BarometricPressure"
+    },
+    {
+      "fields": [
+        "SlrkW_Avg",
+        "SlrMJ_Tot",
+        "Solar_Radiation"
+      ],
+      "label": "SolarRadiation"
+    },
+    {
+      "fields": [
+        "PanelT_Avg"
+      ],
+      "label": "SoilMoisturePeriod"
+    },
+    {
+      "fields": [
+        "Precip_Tot",
+        "Geo_PCPN",
+        "Precipitation",
+        "Precipitation_Totaled",
+        "GEONOR_PRECIP_CM",
+        "Raingauge_Number_2"
+      ],
+      "label": "Rainfall"
+    },
+    {
+      "fields": [
+        "Geonor_Hz_Std",
+        "GEONOR_STD_DEV_FREQ",
+        "Max_Soil_Temp_4_Inches",
+        "Min_Soil_Temp_4_Inches",
+        "Avg_Soil_Temp_4_Inches"
+      ],
+      "label": "SoilTemperature"
+    },
+    {
+      "fields": [
+        "Mean_Wind_Speed_flag",
+        "Mean_Wind_Direction_flag",
+        "Std_Dev_of_Wind_Direction_flag",
+        "Avg_Air_Temp_flag",
+        "Avg_Relative_Humidity_flag",
+        "Barometric_Pressure_flag",
+        "Misc_Number_1_flag",
+        "Misc_Number_2_flag",
+        "Solar_Radiation_flag",
+        "Precipitation_flag",
+        "Snow_Depth_Milimeters_Number_1_flag",
+        "Station_ID_Number_flag",
+        "Max_Wind_Gust_flag",
+        "Max_Air_Temp_flag",
+        "Min_Air_Temp_flag",
+        "Max_Relative_Humidity_flag",
+        "Min_Relative_Humidity_flag",
+        "Battery_Voltage_flag",
+        "Max_Battery_Voltage_flag",
+        "Min_Battery_Voltage_flag",
+        "Max_Snow_Depth_Inches_flag",
+        "Min_Snow_Depth_Inches_flag",
+        "Snow_Depth_flag",
+        "Std_dev_Snow_Depth_Inches_flag",
+        "Precipitation_Totaled_flag",
+        "GEONOR_GAUGE_FREQ_HZ_flag",
+        "GEONOR_STD_DEV_FREQ_flag",
+        "GEONOR_PRECIP_CM_flag",
+        "Raingauge_Number_2_flag",
+        "Max_Soil_Temp_4_Inches_flag",
+        "Min_Soil_Temp_4_Inches_flag",
+        "Avg_Soil_Temp_4_Inches_flag",
+        "Max_Snow_Temp_flag",
+        "Min_Snow_Temp_flag",
+        "Avg_Snow_Temp_flag",
+        "Wind_Vector_Magnitude_flag",
+        "Mean_Wind_Speed_100_ft_flag",
+        "Wind_Vector_Speed_100_ft_flag",
+        "Wind_Direction_100_ft_flag",
+        "Std_Dev_of_Wind_Direction_100_ft_flag",
+        "Max_Wind_Gust_100_ft_flag"
+      ],
+      "label": "IGNORE"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "org_slug": "erczo",
+  "terms": [
+    {
+      "fields": [],
+      "label": "UNKNOWN"
+    },
+    {
+      "fields": [
+        "VWC_1_Avg",
+        "VWC_2_Avg",
+        "VWC_3_Avg",
+        "VWC_4_Avg",
+        "VWC_5_Avg"
+      ],
+      "label": "SoilMoisture"
+    },
+    {
+      "fields": [
+        "EC_1_Avg",
+        "EC_2_Avg",
+        "EC_3_Avg",
+        "EC_4_Avg",
+        "EC_5_Avg"
+      ],
+      "label": "ElectricalConductivity"
+    },
+    {
+      "fields": [
+        "SoilT_1_Avg",
+        "SoilT_2_Avg",
+        "SoilT_3_Avg",
+        "SoilT_4_Avg",
+        "SoilT_5_Avg"
+      ],
+      "label": "AirTemperature"
+    },
+    {
+      "fields": [
+        "P_1_Avg",
+        "P_2_Avg",
+        "P_3_Avg",
+        "P_4_Avg",
+        "P_5_Avg"
+      ],
+      "label": "Permittivity"
+    },
+    {
+      "fields": [
+        "PA_1_Avg",
+        "PA_2_Avg",
+        "PA_3_Avg",
+        "PA_4_Avg",
+        "PA_5_Avg"
+      ],
+      "label": "SoilMoisturePeriod"
+    },
+    {
+      "fields": [
+        "VR_1_Avg",
+        "VR_2_Avg",
+        "VR_3_Avg",
+        "VR_4_Avg",
+        "VR_5_Avg"
+      ],
+      "label": "VoltageRatio"
+    }
+  ]
+}

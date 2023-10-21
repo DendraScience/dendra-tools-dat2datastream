@@ -1,0 +1,47 @@
+{
+  "org_slug": "lter",
+  "terms": [
+    {
+      "fields": [
+        "Ws_Mean_300cm"
+      ],
+      "label": "UNKNOWN"
+    },
+    {
+      "fields": [
+        "Sitename",
+        "Air_TempC_Avg",
+        "Relative_Humidity_Avg",
+        "Ppt_mm_Tot",
+        "Ws_mean_Resultant_300cm"
+      ],
+      "label": "AirTemperature"
+    },
+    {
+      "fields": [
+        "Ptemp_C_Avg"
+      ],
+      "label": "LoggerTemperature"
+    },
+    {
+      "fields": [
+        "WinDir_mean_Resultant"
+      ],
+      "label": "WindDirection"
+    },
+    {
+      "fields": [
+        "WinDir_Std_Dev"
+      ],
+      "label": "SoilTemperature"
+    },
+    {
+      "fields": [
+        "WS_ms_75cm_Avg",
+        "WS_ms_150cm_Avg",
+        "WS_ms_300cm_Avg"
+      ],
+      "label": "WindSpeed"
+    }
+  ]
+}

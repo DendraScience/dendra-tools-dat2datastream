@@ -1,0 +1,347 @@
+{
+  "org_slug": "ucnrs",
+  "terms": [
+    {
+      "fields": [
+        "timestamp",
+        "record",
+        "day_of_year",
+        "_day_of_year",
+        "hourmin",
+        "sta_id",
+        "stationnum",
+        "cvmeta"
+      ],
+      "label": "IGNORE"
+    },
+    {
+      "fields": [
+        "1)",
+        "2)",
+        "3)",
+        "4)",
+        "eR_Avg(1)",
+        "eR_Avg(2)",
+        "eR_Avg(3)",
+        "eI_Avg(1)",
+        "eI_Avg(2)",
+        "eI_Avg(3)",
+        "wfv_Avg(1)",
+        "wfv_Avg(2)",
+        "wfv_Avg(3)",
+        "NaCI_Avg(1)",
+        "NaCI_Avg(2)",
+        "NaCI_Avg(3)",
+        "SoilCond_Avg(1)",
+        "SoilCond_Avg(2)",
+        "SoilCond_Avg(3)",
+        "Hour",
+        "Rso",
+        "Geonor_Hz",
+        "Geo_inch",
+        "Misc_Number_1",
+        "Misc_Number_1_flag",
+        "Misc_Number_2",
+        "Misc_Number_2_flag",
+        "GEONOR_GAUGE_FREQ_HZ",
+        "GEONOR_GAUGE_FREQ_HZ_flag"
+      ],
+      "label": "UNKNOWN"
+    },
+    {
+      "fields": [
+        "Q"
+      ],
+      "label": "SignalQuality"
+    },
+    {
+      "fields": [
+        "Vraw_Avg(1",
+        "Vraw_Avg(2",
+        "Vraw_Avg(3"
+      ],
+      "label": "VoltageRatio"
+    },
+    {
+      "fields": [
+        "SoilType_Avg(1)",
+        "SoilType_Avg(2)",
+        "SoilType_Avg(3)",
+        "Temp_C_Avg(1)",
+        "Temp_C_Avg(2)",
+        "Temp_C_Avg(3)",
+        "eR_tc_Avg(1)",
+        "eR_tc_Avg(2)",
+        "eR_tc_Avg(3)",
+        "eI_tc_Avg(1)",
+        "eI_tc_Avg(2)",
+        "eI_tc_Avg(3)",
+        "SoilCond_tc_Avg(1)",
+        "SoilCond_tc_Avg(2)",
+        "SoilCond_tc_Avg(3)",
+        "res_WS_25ft",
+        "AirTC_25ft_Max",
+        "AirTC_25ft_Min",
+        "AirTC_25ft_Avg",
+        "ETos",
+        "JUDD_AT_Avg",
+        "JUDD_Depth_Avg",
+        "cum_ppt",
+        "AirTC_100ft_Avg",
+        "Air_T_C_Max",
+        "Air_T_C_Min",
+        "Air_T_C_Avg",
+        "res_WS_100ft",
+        "AirTC_100ft_Max",
+        "AirTC_100ft_Min",
+        "ppt_mass_mv_Avg",
+        "ppt_inches_Avg",
+        "Avg_Air_Temp",
+        "Avg_Air_Temp_flag",
+        "Avg_Relative_Humidity",
+        "Avg_Relative_Humidity_flag",
+        "Station_ID_Number",
+        "Station_ID_Number_flag",
+        "Max_Wind_Gust",
+        "Max_Wind_Gust_flag",
+        "Max_Air_Temp",
+        "Max_Air_Temp_flag",
+        "Min_Air_Temp",
+        "Min_Air_Temp_flag",
+        "Max_Relative_Humidity",
+        "Max_Relative_Humidity_flag",
+        "Min_Relative_Humidity",
+        "Min_Relative_Humidity_flag",
+        "Max_Snow_Temp",
+        "Max_Snow_Temp_flag",
+        "Min_Snow_Temp",
+        "Min_Snow_Temp_flag",
+        "Avg_Snow_Temp",
+        "Avg_Snow_Temp_flag",
+        "Max_Wind_Gust_100_ft",
+        "Max_Wind_Gust_100_ft_flag",
+        "AT_C_Max",
+        "AT_C_Min",
+        "AT_C_Avg",
+        "TC_C_2_Max",
+        "TC_C_2_Min",
+        "TC_C_2_Avg",
+        "TC_C_10_Max",
+        "TC_C_10_Min",
+        "TC_C_10_Avg",
+        "delta_T_C_Max",
+        "delta_T_C_Min",
+        "delta_T_C_Avg"
+      ],
+      "label": "AirTemperature"
+    },
+    {
+      "fields": [
+        "SoilWaCond_tc_Avg(1)",
+        "SoilWaCond_tc_Avg(2)",
+        "SoilWaCond_tc_Avg(3)",
+        "LWmV_Avg",
+        "LWmV_Max",
+        "LWmV_Min",
+        "LWMDry_Tot",
+        "LWMCon_Tot",
+        "LWMWet_Tot"
+      ],
+      "label": "LeafWetness"
+    },
+    {
+      "fields": [
+        "WS_ms_25ft",
+        "WS_ms_25ft_Max",
+        "res_WS_ms_25ft",
+        "WS_ms_100ft",
+        "res_WS_ms_100ft",
+        "WS_ms_100ft_Max",
+        "Mean_Wind_Speed",
+        "Mean_Wind_Speed_flag",
+        "Wind_Vector_Magnitude",
+        "Wind_Vector_Magnitude_flag",
+        "Mean_Wind_Speed_100_ft",
+        "Mean_Wind_Speed_100_ft_flag",
+        "Wind_Vector_Speed_100_ft",
+        "Wind_Vector_Speed_100_ft_flag",
+        "mean_wind_vel",
+        "mean_wind_vector_mag",
+        "WS_ms_Max",
+        "WS_ms_Min"
+      ],
+      "label": "WindSpeed"
+    },
+    {
+      "fields": [
+        "WindDir_25ft",
+        "SD_WindDir_25ft",
+        "WindDir_100ft",
+        "SD_WindDir_100ft",
+        "Mean_Wind_Direction",
+        "Mean_Wind_Direction_flag",
+        "Std_Dev_of_Wind_Direction",
+        "Std_Dev_of_Wind_Direction_flag",
+        "Wind_Direction_100_ft",
+        "Wind_Direction_100_ft_flag",
+        "Std_Dev_of_Wind_Direction_100_ft",
+        "Std_Dev_of_Wind_Direction_100_ft_flag",
+        "mean_vector_wind_dir",
+        "sd_wind_dir"
+      ],
+      "label": "WindDirection"
+    },
+    {
+      "fields": [
+        "RH_25ft_Max",
+        "RH_25ft_Min",
+        "RH_25ft",
+        "RH_100ft",
+        "RH_Max",
+        "RH_Min",
+        "RH_Avg",
+        "RH_100ft_Max",
+        "RH_100ft_Min",
+        "RH_pct_Max",
+        "RH_pct_Min",
+        "RH_pct_Avg"
+      ],
+      "label": "RelativeHumidity"
+    },
+    {
+      "fields": [
+        "SnowPillow_in_Avg",
+        "Snow_Depth_in_Avg",
+        "Snow_Depth_Milimeters_Number_1",
+        "Snow_Depth_Milimeters_Number_1_flag",
+        "Max_Snow_Depth_Inches",
+        "Max_Snow_Depth_Inches_flag",
+        "Min_Snow_Depth_Inches",
+        "Min_Snow_Depth_Inches_flag",
+        "Snow_Depth",
+        "Snow_Depth_flag",
+        "Std_dev_Snow_Depth_Inches",
+        "Std_dev_Snow_Depth_Inches_flag",
+        "DT",
+        "TCDT",
+        "DBTCDT"
+      ],
+      "label": "SnowDepth"
+    },
+    {
+      "fields": [
+        "Batt_Volt_Avg",
+        "Batt_Volt_Max",
+        "Batt_Volt_Min",
+        "Battery_Voltage",
+        "Battery_Voltage_flag",
+        "Max_Battery_Voltage",
+        "Max_Battery_Voltage_flag",
+        "Min_Battery_Voltage",
+        "Min_Battery_Voltage_flag"
+      ],
+      "label": "BatteryVoltage"
+    },
+    {
+      "fields": [
+        "BP_mbar_Avg",
+        "Barometric_Pressure",
+        "Barometric_Pressure_flag",
+        "BP_mB_Avg"
+      ],
+      "label": "BarometricPressure"
+    },
+    {
+      "fields": [
+        "SlrkW_Avg",
+        "SlrMJ_Tot",
+        "Solar_Radiation",
+        "Solar_Radiation_flag",
+        "RS_kw_m2_Avg",
+        "RS_kw_m2_Max",
+        "RS_kw_m2_Min",
+        "RS_kw_m2_Std"
+      ],
+      "label": "SolarRadiation"
+    },
+    {
+      "fields": [
+        "PA_uS"
+      ],
+      "label": "SoilMoisturePeriod"
+    },
+    {
+      "fields": [
+        "Precip_Tot",
+        "Geo_PCPN",
+        "Precipitation",
+        "Precipitation_flag",
+        "Precipitation_Totaled",
+        "Precipitation_Totaled_flag",
+        "GEONOR_PRECIP_CM",
+        "GEONOR_PRECIP_CM_flag",
+        "Raingauge_Number_2",
+        "Raingauge_Number_2_flag",
+        "PCPN_intrvl_Tot",
+        "PCPN_accumulated"
+      ],
+      "label": "Rainfall"
+    },
+    {
+      "fields": [
+        "Geonor_Hz_Std",
+        "GEONOR_STD_DEV_FREQ",
+        "GEONOR_STD_DEV_FREQ_flag",
+        "Max_Soil_Temp_4_Inches",
+        "Max_Soil_Temp_4_Inches_flag",
+        "Min_Soil_Temp_4_Inches",
+        "Min_Soil_Temp_4_Inches_flag",
+        "Avg_Soil_Temp_4_Inches",
+        "Avg_Soil_Temp_4_Inches_flag",
+        "WS_ms_Std",
+        "Soil_T50_C_Max",
+        "Soil_T50_C_Min",
+        "Soil_T50_C_Avg",
+        "Soil_T100_C_Max",
+        "Soil_T100_C_Min",
+        "Soil_T100_C_Avg",
+        "Soil_T200_C_Max",
+        "Soil_T200_C_Min",
+        "Soil_T200_C_Avg",
+        "Soil_T500_C_Max",
+        "Soil_T500_C_Min",
+        "Soil_T500_C_Avg"
+      ],
+      "label": "SoilTemperature"
+    },
+    {
+      "fields": [
+        "PAR_Avg",
+        "PAR_Max",
+        "PAR_Min"
+      ],
+      "label": "PhotosyntheticallyActiveRadiation"
+    },
+    {
+      "fields": [
+        "VWC50_Avg",
+        "VWC_V_Avg",
+        "CS616_50_Avg",
+        "CS616_V_Avg"
+      ],
+      "label": "SoilMoisture"
+    },
+    {
+      "fields": [
+        "FuelM"
+      ],
+      "label": "FuelMoisture"
+    },
+    {
+      "fields": [
+        "PTemp_Avg"
+      ],
+      "label": "LoggerTemperature"
+    }
+  ]
+}

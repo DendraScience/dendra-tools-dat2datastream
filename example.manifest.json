@@ -1,0 +1,27 @@
+{
+  "org_slug": "cdfw",
+  "station_name": "Honey Lake WA",
+  "station_slug": "honey-lake-wa",
+  "datfile": "tables/cdfw/HoneyLake_Min10.dat",
+  "maintainer": "TBSYS",
+  "communications": "Satellite",
+  "coordinates": [
+    -120.30266,
+    40.35106,
+    1220.4
+  ],
+  "photos": [
+    {
+      "url": ""
+    },
+    {
+      "url": ""
+    },
+    {
+      "url": ""
+    },
+    {
+      "url": ""
+    }
+  ]
+}

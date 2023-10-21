@@ -10,7 +10,8 @@
         "hourmin",
         "sta_id",
         "stationnum",
-        "cvmeta"
+        "cvmeta",
+        "StationNumber"
       ],
       "label": "IGNORE"
     },
@@ -23,7 +24,8 @@
         "RS_kw_m2_Avg",
         "RS_kw_m2_Max",
         "RS_kw_m2_Min",
-        "RS_kw_m2_Std"
+        "RS_kw_m2_Std",
+        "SlrFD_W_Avg"
       ],
       "label": "SolarRadiation"
     },
@@ -32,14 +34,20 @@
         "mean_wind_vel",
         "mean_wind_vector_mag",
         "WS_ms_Max",
-        "WS_ms_Min"
+        "WS_ms_Min",
+        "WS_ms_S_WVT",
+        "WS_ms_U_WVT",
+        "MaxWS_ms",
+        "MaxWS_ms_Max"
       ],
       "label": "WindSpeed"
     },
     {
       "fields": [
         "mean_vector_wind_dir",
-        "sd_wind_dir"
+        "sd_wind_dir",
+        "WindDir_DU_WVT",
+        "WindDir_SDU_WVT"
       ],
       "label": "WindDirection"
     },
@@ -53,7 +61,10 @@
       "fields": [
         "AT_C_Max",
         "AT_C_Min",
-        "AT_C_Avg"
+        "AT_C_Avg",
+        "AirT_C_Max",
+        "AirT_C_Avg",
+        "AirT_C_Min"
       ],
       "label": "AirTemperature"
     },
@@ -85,21 +96,25 @@
       "fields": [
         "RH_pct_Max",
         "RH_pct_Min",
-        "RH_pct_Avg"
+        "RH_pct_Avg",
+        "RH_Max",
+        "RH_Min"
       ],
       "label": "RelativeHumidity"
     },
     {
       "fields": [
         "BP_mB_GOES_Avg",
-        "BP_mB_Avg"
+        "BP_mB_Avg",
+        "BP_mbar"
       ],
       "label": "BarometricPressure"
     },
     {
       "fields": [
         "PCPN_intrvl_Tot",
-        "PCPN_accumulated"
+        "PCPN_accumulated",
+        "Rain_mm_Tot"
       ],
       "label": "Rainfall"
     },
@@ -115,7 +130,8 @@
       "fields": [
         "Batt_volt_Avg",
         "Batt_volt_Max",
-        "Batt_volt_Min"
+        "Batt_volt_Min",
+        "BattV_Avg"
       ],
       "label": "BatteryVoltage"
     },
@@ -125,6 +141,19 @@
         "PTemp_Avg"
       ],
       "label": "LoggerTemperature"
+    },
+    {
+      "fields": [
+        "Strikes_Tot"
+      ],
+      "label": "LightningStrikes"
+    },
+    {
+      "fields": [
+        "Dist_km_Max",
+        "Dist_km_Min"
+      ],
+      "label": "LightningStrikeDistance"
     }
   ]
 }

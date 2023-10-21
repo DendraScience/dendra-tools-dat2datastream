@@ -524,7 +524,7 @@
       "data_purpose": "ReadytoUse"
     },
     {
-      "abbreviations": ["rh"],
+      "abbreviations": ["rh","Relative_Humidity"],
       "label": "RelativeHumidity",
       "name": "Relative Humidity",
       "medium": "Air",
